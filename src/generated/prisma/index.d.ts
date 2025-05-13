@@ -14,15 +14,15 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model PlaygroundHistory
+ * Model Prompt
  * 
  */
-export type PlaygroundHistory = $Result.DefaultSelection<Prisma.$PlaygroundHistoryPayload>
+export type Prompt = $Result.DefaultSelection<Prisma.$PromptPayload>
 /**
- * Model PlaygroundResponse
+ * Model PromptResponse
  * 
  */
-export type PlaygroundResponse = $Result.DefaultSelection<Prisma.$PlaygroundResponsePayload>
+export type PromptResponse = $Result.DefaultSelection<Prisma.$PromptResponsePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -31,8 +31,8 @@ export type PlaygroundResponse = $Result.DefaultSelection<Prisma.$PlaygroundResp
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more PlaygroundHistories
- * const playgroundHistories = await prisma.playgroundHistory.findMany()
+ * // Fetch zero or more Prompts
+ * const prompts = await prisma.prompt.findMany()
  * ```
  *
  *
@@ -52,8 +52,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more PlaygroundHistories
-   * const playgroundHistories = await prisma.playgroundHistory.findMany()
+   * // Fetch zero or more Prompts
+   * const prompts = await prisma.prompt.findMany()
    * ```
    *
    *
@@ -150,24 +150,24 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.playgroundHistory`: Exposes CRUD operations for the **PlaygroundHistory** model.
+   * `prisma.prompt`: Exposes CRUD operations for the **Prompt** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more PlaygroundHistories
-    * const playgroundHistories = await prisma.playgroundHistory.findMany()
+    * // Fetch zero or more Prompts
+    * const prompts = await prisma.prompt.findMany()
     * ```
     */
-  get playgroundHistory(): Prisma.PlaygroundHistoryDelegate<ExtArgs, ClientOptions>;
+  get prompt(): Prisma.PromptDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.playgroundResponse`: Exposes CRUD operations for the **PlaygroundResponse** model.
+   * `prisma.promptResponse`: Exposes CRUD operations for the **PromptResponse** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more PlaygroundResponses
-    * const playgroundResponses = await prisma.playgroundResponse.findMany()
+    * // Fetch zero or more PromptResponses
+    * const promptResponses = await prisma.promptResponse.findMany()
     * ```
     */
-  get playgroundResponse(): Prisma.PlaygroundResponseDelegate<ExtArgs, ClientOptions>;
+  get promptResponse(): Prisma.PromptResponseDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -608,8 +608,8 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    PlaygroundHistory: 'PlaygroundHistory',
-    PlaygroundResponse: 'PlaygroundResponse'
+    Prompt: 'Prompt',
+    PromptResponse: 'PromptResponse'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,155 +628,155 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "playgroundHistory" | "playgroundResponse"
+      modelProps: "prompt" | "promptResponse"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      PlaygroundHistory: {
-        payload: Prisma.$PlaygroundHistoryPayload<ExtArgs>
-        fields: Prisma.PlaygroundHistoryFieldRefs
+      Prompt: {
+        payload: Prisma.$PromptPayload<ExtArgs>
+        fields: Prisma.PromptFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PlaygroundHistoryFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload> | null
+            args: Prisma.PromptFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PlaygroundHistoryFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload>
+            args: Prisma.PromptFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload>
           }
           findFirst: {
-            args: Prisma.PlaygroundHistoryFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload> | null
+            args: Prisma.PromptFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PlaygroundHistoryFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload>
+            args: Prisma.PromptFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload>
           }
           findMany: {
-            args: Prisma.PlaygroundHistoryFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload>[]
+            args: Prisma.PromptFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload>[]
           }
           create: {
-            args: Prisma.PlaygroundHistoryCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload>
+            args: Prisma.PromptCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload>
           }
           createMany: {
-            args: Prisma.PlaygroundHistoryCreateManyArgs<ExtArgs>
+            args: Prisma.PromptCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.PlaygroundHistoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload>[]
+            args: Prisma.PromptCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload>[]
           }
           delete: {
-            args: Prisma.PlaygroundHistoryDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload>
+            args: Prisma.PromptDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload>
           }
           update: {
-            args: Prisma.PlaygroundHistoryUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload>
+            args: Prisma.PromptUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload>
           }
           deleteMany: {
-            args: Prisma.PlaygroundHistoryDeleteManyArgs<ExtArgs>
+            args: Prisma.PromptDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PlaygroundHistoryUpdateManyArgs<ExtArgs>
+            args: Prisma.PromptUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.PlaygroundHistoryUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload>[]
+            args: Prisma.PromptUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload>[]
           }
           upsert: {
-            args: Prisma.PlaygroundHistoryUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundHistoryPayload>
+            args: Prisma.PromptUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptPayload>
           }
           aggregate: {
-            args: Prisma.PlaygroundHistoryAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePlaygroundHistory>
+            args: Prisma.PromptAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePrompt>
           }
           groupBy: {
-            args: Prisma.PlaygroundHistoryGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PlaygroundHistoryGroupByOutputType>[]
+            args: Prisma.PromptGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PromptGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PlaygroundHistoryCountArgs<ExtArgs>
-            result: $Utils.Optional<PlaygroundHistoryCountAggregateOutputType> | number
+            args: Prisma.PromptCountArgs<ExtArgs>
+            result: $Utils.Optional<PromptCountAggregateOutputType> | number
           }
         }
       }
-      PlaygroundResponse: {
-        payload: Prisma.$PlaygroundResponsePayload<ExtArgs>
-        fields: Prisma.PlaygroundResponseFieldRefs
+      PromptResponse: {
+        payload: Prisma.$PromptResponsePayload<ExtArgs>
+        fields: Prisma.PromptResponseFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PlaygroundResponseFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload> | null
+            args: Prisma.PromptResponseFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PlaygroundResponseFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload>
+            args: Prisma.PromptResponseFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload>
           }
           findFirst: {
-            args: Prisma.PlaygroundResponseFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload> | null
+            args: Prisma.PromptResponseFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PlaygroundResponseFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload>
+            args: Prisma.PromptResponseFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload>
           }
           findMany: {
-            args: Prisma.PlaygroundResponseFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload>[]
+            args: Prisma.PromptResponseFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload>[]
           }
           create: {
-            args: Prisma.PlaygroundResponseCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload>
+            args: Prisma.PromptResponseCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload>
           }
           createMany: {
-            args: Prisma.PlaygroundResponseCreateManyArgs<ExtArgs>
+            args: Prisma.PromptResponseCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.PlaygroundResponseCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload>[]
+            args: Prisma.PromptResponseCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload>[]
           }
           delete: {
-            args: Prisma.PlaygroundResponseDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload>
+            args: Prisma.PromptResponseDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload>
           }
           update: {
-            args: Prisma.PlaygroundResponseUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload>
+            args: Prisma.PromptResponseUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload>
           }
           deleteMany: {
-            args: Prisma.PlaygroundResponseDeleteManyArgs<ExtArgs>
+            args: Prisma.PromptResponseDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PlaygroundResponseUpdateManyArgs<ExtArgs>
+            args: Prisma.PromptResponseUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.PlaygroundResponseUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload>[]
+            args: Prisma.PromptResponseUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload>[]
           }
           upsert: {
-            args: Prisma.PlaygroundResponseUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlaygroundResponsePayload>
+            args: Prisma.PromptResponseUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PromptResponsePayload>
           }
           aggregate: {
-            args: Prisma.PlaygroundResponseAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePlaygroundResponse>
+            args: Prisma.PromptResponseAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePromptResponse>
           }
           groupBy: {
-            args: Prisma.PlaygroundResponseGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PlaygroundResponseGroupByOutputType>[]
+            args: Prisma.PromptResponseGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PromptResponseGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PlaygroundResponseCountArgs<ExtArgs>
-            result: $Utils.Optional<PlaygroundResponseCountAggregateOutputType> | number
+            args: Prisma.PromptResponseCountArgs<ExtArgs>
+            result: $Utils.Optional<PromptResponseCountAggregateOutputType> | number
           }
         }
       }
@@ -864,8 +864,8 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    playgroundHistory?: PlaygroundHistoryOmit
-    playgroundResponse?: PlaygroundResponseOmit
+    prompt?: PromptOmit
+    promptResponse?: PromptResponseOmit
   }
 
   /* Types for Logging */
@@ -956,33 +956,33 @@ export namespace Prisma {
 
 
   /**
-   * Count Type PlaygroundHistoryCountOutputType
+   * Count Type PromptCountOutputType
    */
 
-  export type PlaygroundHistoryCountOutputType = {
+  export type PromptCountOutputType = {
     responses: number
   }
 
-  export type PlaygroundHistoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    responses?: boolean | PlaygroundHistoryCountOutputTypeCountResponsesArgs
+  export type PromptCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    responses?: boolean | PromptCountOutputTypeCountResponsesArgs
   }
 
   // Custom InputTypes
   /**
-   * PlaygroundHistoryCountOutputType without action
+   * PromptCountOutputType without action
    */
-  export type PlaygroundHistoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistoryCountOutputType
+     * Select specific fields to fetch from the PromptCountOutputType
      */
-    select?: PlaygroundHistoryCountOutputTypeSelect<ExtArgs> | null
+    select?: PromptCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * PlaygroundHistoryCountOutputType without action
+   * PromptCountOutputType without action
    */
-  export type PlaygroundHistoryCountOutputTypeCountResponsesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlaygroundResponseWhereInput
+  export type PromptCountOutputTypeCountResponsesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PromptResponseWhereInput
   }
 
 
@@ -991,28 +991,28 @@ export namespace Prisma {
    */
 
   /**
-   * Model PlaygroundHistory
+   * Model Prompt
    */
 
-  export type AggregatePlaygroundHistory = {
-    _count: PlaygroundHistoryCountAggregateOutputType | null
-    _min: PlaygroundHistoryMinAggregateOutputType | null
-    _max: PlaygroundHistoryMaxAggregateOutputType | null
+  export type AggregatePrompt = {
+    _count: PromptCountAggregateOutputType | null
+    _min: PromptMinAggregateOutputType | null
+    _max: PromptMaxAggregateOutputType | null
   }
 
-  export type PlaygroundHistoryMinAggregateOutputType = {
+  export type PromptMinAggregateOutputType = {
     id: string | null
     prompt: string | null
     timestamp: Date | null
   }
 
-  export type PlaygroundHistoryMaxAggregateOutputType = {
+  export type PromptMaxAggregateOutputType = {
     id: string | null
     prompt: string | null
     timestamp: Date | null
   }
 
-  export type PlaygroundHistoryCountAggregateOutputType = {
+  export type PromptCountAggregateOutputType = {
     id: number
     prompt: number
     timestamp: number
@@ -1020,293 +1020,293 @@ export namespace Prisma {
   }
 
 
-  export type PlaygroundHistoryMinAggregateInputType = {
+  export type PromptMinAggregateInputType = {
     id?: true
     prompt?: true
     timestamp?: true
   }
 
-  export type PlaygroundHistoryMaxAggregateInputType = {
+  export type PromptMaxAggregateInputType = {
     id?: true
     prompt?: true
     timestamp?: true
   }
 
-  export type PlaygroundHistoryCountAggregateInputType = {
+  export type PromptCountAggregateInputType = {
     id?: true
     prompt?: true
     timestamp?: true
     _all?: true
   }
 
-  export type PlaygroundHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PlaygroundHistory to aggregate.
+     * Filter which Prompt to aggregate.
      */
-    where?: PlaygroundHistoryWhereInput
+    where?: PromptWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlaygroundHistories to fetch.
+     * Determine the order of Prompts to fetch.
      */
-    orderBy?: PlaygroundHistoryOrderByWithRelationInput | PlaygroundHistoryOrderByWithRelationInput[]
+    orderBy?: PromptOrderByWithRelationInput | PromptOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PlaygroundHistoryWhereUniqueInput
+    cursor?: PromptWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlaygroundHistories from the position of the cursor.
+     * Take `±n` Prompts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlaygroundHistories.
+     * Skip the first `n` Prompts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned PlaygroundHistories
+     * Count returned Prompts
     **/
-    _count?: true | PlaygroundHistoryCountAggregateInputType
+    _count?: true | PromptCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PlaygroundHistoryMinAggregateInputType
+    _min?: PromptMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PlaygroundHistoryMaxAggregateInputType
+    _max?: PromptMaxAggregateInputType
   }
 
-  export type GetPlaygroundHistoryAggregateType<T extends PlaygroundHistoryAggregateArgs> = {
-        [P in keyof T & keyof AggregatePlaygroundHistory]: P extends '_count' | 'count'
+  export type GetPromptAggregateType<T extends PromptAggregateArgs> = {
+        [P in keyof T & keyof AggregatePrompt]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePlaygroundHistory[P]>
-      : GetScalarType<T[P], AggregatePlaygroundHistory[P]>
+        : GetScalarType<T[P], AggregatePrompt[P]>
+      : GetScalarType<T[P], AggregatePrompt[P]>
   }
 
 
 
 
-  export type PlaygroundHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlaygroundHistoryWhereInput
-    orderBy?: PlaygroundHistoryOrderByWithAggregationInput | PlaygroundHistoryOrderByWithAggregationInput[]
-    by: PlaygroundHistoryScalarFieldEnum[] | PlaygroundHistoryScalarFieldEnum
-    having?: PlaygroundHistoryScalarWhereWithAggregatesInput
+  export type PromptGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PromptWhereInput
+    orderBy?: PromptOrderByWithAggregationInput | PromptOrderByWithAggregationInput[]
+    by: PromptScalarFieldEnum[] | PromptScalarFieldEnum
+    having?: PromptScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PlaygroundHistoryCountAggregateInputType | true
-    _min?: PlaygroundHistoryMinAggregateInputType
-    _max?: PlaygroundHistoryMaxAggregateInputType
+    _count?: PromptCountAggregateInputType | true
+    _min?: PromptMinAggregateInputType
+    _max?: PromptMaxAggregateInputType
   }
 
-  export type PlaygroundHistoryGroupByOutputType = {
+  export type PromptGroupByOutputType = {
     id: string
     prompt: string
     timestamp: Date
-    _count: PlaygroundHistoryCountAggregateOutputType | null
-    _min: PlaygroundHistoryMinAggregateOutputType | null
-    _max: PlaygroundHistoryMaxAggregateOutputType | null
+    _count: PromptCountAggregateOutputType | null
+    _min: PromptMinAggregateOutputType | null
+    _max: PromptMaxAggregateOutputType | null
   }
 
-  type GetPlaygroundHistoryGroupByPayload<T extends PlaygroundHistoryGroupByArgs> = Prisma.PrismaPromise<
+  type GetPromptGroupByPayload<T extends PromptGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PlaygroundHistoryGroupByOutputType, T['by']> &
+      PickEnumerable<PromptGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PlaygroundHistoryGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PromptGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PlaygroundHistoryGroupByOutputType[P]>
-            : GetScalarType<T[P], PlaygroundHistoryGroupByOutputType[P]>
+              : GetScalarType<T[P], PromptGroupByOutputType[P]>
+            : GetScalarType<T[P], PromptGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PlaygroundHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PromptSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     prompt?: boolean
     timestamp?: boolean
-    responses?: boolean | PlaygroundHistory$responsesArgs<ExtArgs>
-    _count?: boolean | PlaygroundHistoryCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["playgroundHistory"]>
+    responses?: boolean | Prompt$responsesArgs<ExtArgs>
+    _count?: boolean | PromptCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["prompt"]>
 
-  export type PlaygroundHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PromptSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     prompt?: boolean
     timestamp?: boolean
-  }, ExtArgs["result"]["playgroundHistory"]>
+  }, ExtArgs["result"]["prompt"]>
 
-  export type PlaygroundHistorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PromptSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     prompt?: boolean
     timestamp?: boolean
-  }, ExtArgs["result"]["playgroundHistory"]>
+  }, ExtArgs["result"]["prompt"]>
 
-  export type PlaygroundHistorySelectScalar = {
+  export type PromptSelectScalar = {
     id?: boolean
     prompt?: boolean
     timestamp?: boolean
   }
 
-  export type PlaygroundHistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "prompt" | "timestamp", ExtArgs["result"]["playgroundHistory"]>
-  export type PlaygroundHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    responses?: boolean | PlaygroundHistory$responsesArgs<ExtArgs>
-    _count?: boolean | PlaygroundHistoryCountOutputTypeDefaultArgs<ExtArgs>
+  export type PromptOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "prompt" | "timestamp", ExtArgs["result"]["prompt"]>
+  export type PromptInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    responses?: boolean | Prompt$responsesArgs<ExtArgs>
+    _count?: boolean | PromptCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type PlaygroundHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type PlaygroundHistoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type PromptIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type PromptIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $PlaygroundHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "PlaygroundHistory"
+  export type $PromptPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Prompt"
     objects: {
-      responses: Prisma.$PlaygroundResponsePayload<ExtArgs>[]
+      responses: Prisma.$PromptResponsePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       prompt: string
       timestamp: Date
-    }, ExtArgs["result"]["playgroundHistory"]>
+    }, ExtArgs["result"]["prompt"]>
     composites: {}
   }
 
-  type PlaygroundHistoryGetPayload<S extends boolean | null | undefined | PlaygroundHistoryDefaultArgs> = $Result.GetResult<Prisma.$PlaygroundHistoryPayload, S>
+  type PromptGetPayload<S extends boolean | null | undefined | PromptDefaultArgs> = $Result.GetResult<Prisma.$PromptPayload, S>
 
-  type PlaygroundHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PlaygroundHistoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PlaygroundHistoryCountAggregateInputType | true
+  type PromptCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PromptFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PromptCountAggregateInputType | true
     }
 
-  export interface PlaygroundHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PlaygroundHistory'], meta: { name: 'PlaygroundHistory' } }
+  export interface PromptDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Prompt'], meta: { name: 'Prompt' } }
     /**
-     * Find zero or one PlaygroundHistory that matches the filter.
-     * @param {PlaygroundHistoryFindUniqueArgs} args - Arguments to find a PlaygroundHistory
+     * Find zero or one Prompt that matches the filter.
+     * @param {PromptFindUniqueArgs} args - Arguments to find a Prompt
      * @example
-     * // Get one PlaygroundHistory
-     * const playgroundHistory = await prisma.playgroundHistory.findUnique({
+     * // Get one Prompt
+     * const prompt = await prisma.prompt.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PlaygroundHistoryFindUniqueArgs>(args: SelectSubset<T, PlaygroundHistoryFindUniqueArgs<ExtArgs>>): Prisma__PlaygroundHistoryClient<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends PromptFindUniqueArgs>(args: SelectSubset<T, PromptFindUniqueArgs<ExtArgs>>): Prisma__PromptClient<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one PlaygroundHistory that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Prompt that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PlaygroundHistoryFindUniqueOrThrowArgs} args - Arguments to find a PlaygroundHistory
+     * @param {PromptFindUniqueOrThrowArgs} args - Arguments to find a Prompt
      * @example
-     * // Get one PlaygroundHistory
-     * const playgroundHistory = await prisma.playgroundHistory.findUniqueOrThrow({
+     * // Get one Prompt
+     * const prompt = await prisma.prompt.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PlaygroundHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, PlaygroundHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PlaygroundHistoryClient<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends PromptFindUniqueOrThrowArgs>(args: SelectSubset<T, PromptFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PromptClient<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PlaygroundHistory that matches the filter.
+     * Find the first Prompt that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundHistoryFindFirstArgs} args - Arguments to find a PlaygroundHistory
+     * @param {PromptFindFirstArgs} args - Arguments to find a Prompt
      * @example
-     * // Get one PlaygroundHistory
-     * const playgroundHistory = await prisma.playgroundHistory.findFirst({
+     * // Get one Prompt
+     * const prompt = await prisma.prompt.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PlaygroundHistoryFindFirstArgs>(args?: SelectSubset<T, PlaygroundHistoryFindFirstArgs<ExtArgs>>): Prisma__PlaygroundHistoryClient<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends PromptFindFirstArgs>(args?: SelectSubset<T, PromptFindFirstArgs<ExtArgs>>): Prisma__PromptClient<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PlaygroundHistory that matches the filter or
+     * Find the first Prompt that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundHistoryFindFirstOrThrowArgs} args - Arguments to find a PlaygroundHistory
+     * @param {PromptFindFirstOrThrowArgs} args - Arguments to find a Prompt
      * @example
-     * // Get one PlaygroundHistory
-     * const playgroundHistory = await prisma.playgroundHistory.findFirstOrThrow({
+     * // Get one Prompt
+     * const prompt = await prisma.prompt.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PlaygroundHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, PlaygroundHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__PlaygroundHistoryClient<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends PromptFindFirstOrThrowArgs>(args?: SelectSubset<T, PromptFindFirstOrThrowArgs<ExtArgs>>): Prisma__PromptClient<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more PlaygroundHistories that matches the filter.
+     * Find zero or more Prompts that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PromptFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all PlaygroundHistories
-     * const playgroundHistories = await prisma.playgroundHistory.findMany()
+     * // Get all Prompts
+     * const prompts = await prisma.prompt.findMany()
      * 
-     * // Get first 10 PlaygroundHistories
-     * const playgroundHistories = await prisma.playgroundHistory.findMany({ take: 10 })
+     * // Get first 10 Prompts
+     * const prompts = await prisma.prompt.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const playgroundHistoryWithIdOnly = await prisma.playgroundHistory.findMany({ select: { id: true } })
+     * const promptWithIdOnly = await prisma.prompt.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends PlaygroundHistoryFindManyArgs>(args?: SelectSubset<T, PlaygroundHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends PromptFindManyArgs>(args?: SelectSubset<T, PromptFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a PlaygroundHistory.
-     * @param {PlaygroundHistoryCreateArgs} args - Arguments to create a PlaygroundHistory.
+     * Create a Prompt.
+     * @param {PromptCreateArgs} args - Arguments to create a Prompt.
      * @example
-     * // Create one PlaygroundHistory
-     * const PlaygroundHistory = await prisma.playgroundHistory.create({
+     * // Create one Prompt
+     * const Prompt = await prisma.prompt.create({
      *   data: {
-     *     // ... data to create a PlaygroundHistory
+     *     // ... data to create a Prompt
      *   }
      * })
      * 
      */
-    create<T extends PlaygroundHistoryCreateArgs>(args: SelectSubset<T, PlaygroundHistoryCreateArgs<ExtArgs>>): Prisma__PlaygroundHistoryClient<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends PromptCreateArgs>(args: SelectSubset<T, PromptCreateArgs<ExtArgs>>): Prisma__PromptClient<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many PlaygroundHistories.
-     * @param {PlaygroundHistoryCreateManyArgs} args - Arguments to create many PlaygroundHistories.
+     * Create many Prompts.
+     * @param {PromptCreateManyArgs} args - Arguments to create many Prompts.
      * @example
-     * // Create many PlaygroundHistories
-     * const playgroundHistory = await prisma.playgroundHistory.createMany({
+     * // Create many Prompts
+     * const prompt = await prisma.prompt.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PlaygroundHistoryCreateManyArgs>(args?: SelectSubset<T, PlaygroundHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PromptCreateManyArgs>(args?: SelectSubset<T, PromptCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many PlaygroundHistories and returns the data saved in the database.
-     * @param {PlaygroundHistoryCreateManyAndReturnArgs} args - Arguments to create many PlaygroundHistories.
+     * Create many Prompts and returns the data saved in the database.
+     * @param {PromptCreateManyAndReturnArgs} args - Arguments to create many Prompts.
      * @example
-     * // Create many PlaygroundHistories
-     * const playgroundHistory = await prisma.playgroundHistory.createManyAndReturn({
+     * // Create many Prompts
+     * const prompt = await prisma.prompt.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many PlaygroundHistories and only return the `id`
-     * const playgroundHistoryWithIdOnly = await prisma.playgroundHistory.createManyAndReturn({
+     * // Create many Prompts and only return the `id`
+     * const promptWithIdOnly = await prisma.prompt.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1316,28 +1316,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends PlaygroundHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, PlaygroundHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends PromptCreateManyAndReturnArgs>(args?: SelectSubset<T, PromptCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a PlaygroundHistory.
-     * @param {PlaygroundHistoryDeleteArgs} args - Arguments to delete one PlaygroundHistory.
+     * Delete a Prompt.
+     * @param {PromptDeleteArgs} args - Arguments to delete one Prompt.
      * @example
-     * // Delete one PlaygroundHistory
-     * const PlaygroundHistory = await prisma.playgroundHistory.delete({
+     * // Delete one Prompt
+     * const Prompt = await prisma.prompt.delete({
      *   where: {
-     *     // ... filter to delete one PlaygroundHistory
+     *     // ... filter to delete one Prompt
      *   }
      * })
      * 
      */
-    delete<T extends PlaygroundHistoryDeleteArgs>(args: SelectSubset<T, PlaygroundHistoryDeleteArgs<ExtArgs>>): Prisma__PlaygroundHistoryClient<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends PromptDeleteArgs>(args: SelectSubset<T, PromptDeleteArgs<ExtArgs>>): Prisma__PromptClient<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one PlaygroundHistory.
-     * @param {PlaygroundHistoryUpdateArgs} args - Arguments to update one PlaygroundHistory.
+     * Update one Prompt.
+     * @param {PromptUpdateArgs} args - Arguments to update one Prompt.
      * @example
-     * // Update one PlaygroundHistory
-     * const playgroundHistory = await prisma.playgroundHistory.update({
+     * // Update one Prompt
+     * const prompt = await prisma.prompt.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1347,30 +1347,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PlaygroundHistoryUpdateArgs>(args: SelectSubset<T, PlaygroundHistoryUpdateArgs<ExtArgs>>): Prisma__PlaygroundHistoryClient<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends PromptUpdateArgs>(args: SelectSubset<T, PromptUpdateArgs<ExtArgs>>): Prisma__PromptClient<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more PlaygroundHistories.
-     * @param {PlaygroundHistoryDeleteManyArgs} args - Arguments to filter PlaygroundHistories to delete.
+     * Delete zero or more Prompts.
+     * @param {PromptDeleteManyArgs} args - Arguments to filter Prompts to delete.
      * @example
-     * // Delete a few PlaygroundHistories
-     * const { count } = await prisma.playgroundHistory.deleteMany({
+     * // Delete a few Prompts
+     * const { count } = await prisma.prompt.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PlaygroundHistoryDeleteManyArgs>(args?: SelectSubset<T, PlaygroundHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PromptDeleteManyArgs>(args?: SelectSubset<T, PromptDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PlaygroundHistories.
+     * Update zero or more Prompts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PromptUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many PlaygroundHistories
-     * const playgroundHistory = await prisma.playgroundHistory.updateMany({
+     * // Update many Prompts
+     * const prompt = await prisma.prompt.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1380,14 +1380,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PlaygroundHistoryUpdateManyArgs>(args: SelectSubset<T, PlaygroundHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PromptUpdateManyArgs>(args: SelectSubset<T, PromptUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PlaygroundHistories and returns the data updated in the database.
-     * @param {PlaygroundHistoryUpdateManyAndReturnArgs} args - Arguments to update many PlaygroundHistories.
+     * Update zero or more Prompts and returns the data updated in the database.
+     * @param {PromptUpdateManyAndReturnArgs} args - Arguments to update many Prompts.
      * @example
-     * // Update many PlaygroundHistories
-     * const playgroundHistory = await prisma.playgroundHistory.updateManyAndReturn({
+     * // Update many Prompts
+     * const prompt = await prisma.prompt.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1396,8 +1396,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more PlaygroundHistories and only return the `id`
-     * const playgroundHistoryWithIdOnly = await prisma.playgroundHistory.updateManyAndReturn({
+     * // Update zero or more Prompts and only return the `id`
+     * const promptWithIdOnly = await prisma.prompt.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -1410,56 +1410,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends PlaygroundHistoryUpdateManyAndReturnArgs>(args: SelectSubset<T, PlaygroundHistoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends PromptUpdateManyAndReturnArgs>(args: SelectSubset<T, PromptUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one PlaygroundHistory.
-     * @param {PlaygroundHistoryUpsertArgs} args - Arguments to update or create a PlaygroundHistory.
+     * Create or update one Prompt.
+     * @param {PromptUpsertArgs} args - Arguments to update or create a Prompt.
      * @example
-     * // Update or create a PlaygroundHistory
-     * const playgroundHistory = await prisma.playgroundHistory.upsert({
+     * // Update or create a Prompt
+     * const prompt = await prisma.prompt.upsert({
      *   create: {
-     *     // ... data to create a PlaygroundHistory
+     *     // ... data to create a Prompt
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the PlaygroundHistory we want to update
+     *     // ... the filter for the Prompt we want to update
      *   }
      * })
      */
-    upsert<T extends PlaygroundHistoryUpsertArgs>(args: SelectSubset<T, PlaygroundHistoryUpsertArgs<ExtArgs>>): Prisma__PlaygroundHistoryClient<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends PromptUpsertArgs>(args: SelectSubset<T, PromptUpsertArgs<ExtArgs>>): Prisma__PromptClient<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of PlaygroundHistories.
+     * Count the number of Prompts.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundHistoryCountArgs} args - Arguments to filter PlaygroundHistories to count.
+     * @param {PromptCountArgs} args - Arguments to filter Prompts to count.
      * @example
-     * // Count the number of PlaygroundHistories
-     * const count = await prisma.playgroundHistory.count({
+     * // Count the number of Prompts
+     * const count = await prisma.prompt.count({
      *   where: {
-     *     // ... the filter for the PlaygroundHistories we want to count
+     *     // ... the filter for the Prompts we want to count
      *   }
      * })
     **/
-    count<T extends PlaygroundHistoryCountArgs>(
-      args?: Subset<T, PlaygroundHistoryCountArgs>,
+    count<T extends PromptCountArgs>(
+      args?: Subset<T, PromptCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PlaygroundHistoryCountAggregateOutputType>
+          : GetScalarType<T['select'], PromptCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a PlaygroundHistory.
+     * Allows you to perform aggregations operations on a Prompt.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PromptAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1479,13 +1479,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PlaygroundHistoryAggregateArgs>(args: Subset<T, PlaygroundHistoryAggregateArgs>): Prisma.PrismaPromise<GetPlaygroundHistoryAggregateType<T>>
+    aggregate<T extends PromptAggregateArgs>(args: Subset<T, PromptAggregateArgs>): Prisma.PrismaPromise<GetPromptAggregateType<T>>
 
     /**
-     * Group by PlaygroundHistory.
+     * Group by Prompt.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundHistoryGroupByArgs} args - Group by arguments.
+     * @param {PromptGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1500,14 +1500,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PlaygroundHistoryGroupByArgs,
+      T extends PromptGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PlaygroundHistoryGroupByArgs['orderBy'] }
-        : { orderBy?: PlaygroundHistoryGroupByArgs['orderBy'] },
+        ? { orderBy: PromptGroupByArgs['orderBy'] }
+        : { orderBy?: PromptGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1556,22 +1556,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PlaygroundHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPlaygroundHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PromptGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPromptGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the PlaygroundHistory model
+   * Fields of the Prompt model
    */
-  readonly fields: PlaygroundHistoryFieldRefs;
+  readonly fields: PromptFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for PlaygroundHistory.
+   * The delegate class that acts as a "Promise-like" for Prompt.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PlaygroundHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PromptClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    responses<T extends PlaygroundHistory$responsesArgs<ExtArgs> = {}>(args?: Subset<T, PlaygroundHistory$responsesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    responses<T extends Prompt$responsesArgs<ExtArgs> = {}>(args?: Subset<T, Prompt$responsesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1598,455 +1598,455 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the PlaygroundHistory model
+   * Fields of the Prompt model
    */
-  interface PlaygroundHistoryFieldRefs {
-    readonly id: FieldRef<"PlaygroundHistory", 'String'>
-    readonly prompt: FieldRef<"PlaygroundHistory", 'String'>
-    readonly timestamp: FieldRef<"PlaygroundHistory", 'DateTime'>
+  interface PromptFieldRefs {
+    readonly id: FieldRef<"Prompt", 'String'>
+    readonly prompt: FieldRef<"Prompt", 'String'>
+    readonly timestamp: FieldRef<"Prompt", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * PlaygroundHistory findUnique
+   * Prompt findUnique
    */
-  export type PlaygroundHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundHistory to fetch.
+     * Filter, which Prompt to fetch.
      */
-    where: PlaygroundHistoryWhereUniqueInput
+    where: PromptWhereUniqueInput
   }
 
   /**
-   * PlaygroundHistory findUniqueOrThrow
+   * Prompt findUniqueOrThrow
    */
-  export type PlaygroundHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundHistory to fetch.
+     * Filter, which Prompt to fetch.
      */
-    where: PlaygroundHistoryWhereUniqueInput
+    where: PromptWhereUniqueInput
   }
 
   /**
-   * PlaygroundHistory findFirst
+   * Prompt findFirst
    */
-  export type PlaygroundHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundHistory to fetch.
+     * Filter, which Prompt to fetch.
      */
-    where?: PlaygroundHistoryWhereInput
+    where?: PromptWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlaygroundHistories to fetch.
+     * Determine the order of Prompts to fetch.
      */
-    orderBy?: PlaygroundHistoryOrderByWithRelationInput | PlaygroundHistoryOrderByWithRelationInput[]
+    orderBy?: PromptOrderByWithRelationInput | PromptOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PlaygroundHistories.
+     * Sets the position for searching for Prompts.
      */
-    cursor?: PlaygroundHistoryWhereUniqueInput
+    cursor?: PromptWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlaygroundHistories from the position of the cursor.
+     * Take `±n` Prompts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlaygroundHistories.
+     * Skip the first `n` Prompts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PlaygroundHistories.
+     * Filter by unique combinations of Prompts.
      */
-    distinct?: PlaygroundHistoryScalarFieldEnum | PlaygroundHistoryScalarFieldEnum[]
+    distinct?: PromptScalarFieldEnum | PromptScalarFieldEnum[]
   }
 
   /**
-   * PlaygroundHistory findFirstOrThrow
+   * Prompt findFirstOrThrow
    */
-  export type PlaygroundHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundHistory to fetch.
+     * Filter, which Prompt to fetch.
      */
-    where?: PlaygroundHistoryWhereInput
+    where?: PromptWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlaygroundHistories to fetch.
+     * Determine the order of Prompts to fetch.
      */
-    orderBy?: PlaygroundHistoryOrderByWithRelationInput | PlaygroundHistoryOrderByWithRelationInput[]
+    orderBy?: PromptOrderByWithRelationInput | PromptOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PlaygroundHistories.
+     * Sets the position for searching for Prompts.
      */
-    cursor?: PlaygroundHistoryWhereUniqueInput
+    cursor?: PromptWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlaygroundHistories from the position of the cursor.
+     * Take `±n` Prompts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlaygroundHistories.
+     * Skip the first `n` Prompts.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PlaygroundHistories.
+     * Filter by unique combinations of Prompts.
      */
-    distinct?: PlaygroundHistoryScalarFieldEnum | PlaygroundHistoryScalarFieldEnum[]
+    distinct?: PromptScalarFieldEnum | PromptScalarFieldEnum[]
   }
 
   /**
-   * PlaygroundHistory findMany
+   * Prompt findMany
    */
-  export type PlaygroundHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundHistories to fetch.
+     * Filter, which Prompts to fetch.
      */
-    where?: PlaygroundHistoryWhereInput
+    where?: PromptWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlaygroundHistories to fetch.
+     * Determine the order of Prompts to fetch.
      */
-    orderBy?: PlaygroundHistoryOrderByWithRelationInput | PlaygroundHistoryOrderByWithRelationInput[]
+    orderBy?: PromptOrderByWithRelationInput | PromptOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing PlaygroundHistories.
+     * Sets the position for listing Prompts.
      */
-    cursor?: PlaygroundHistoryWhereUniqueInput
+    cursor?: PromptWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlaygroundHistories from the position of the cursor.
+     * Take `±n` Prompts from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlaygroundHistories.
+     * Skip the first `n` Prompts.
      */
     skip?: number
-    distinct?: PlaygroundHistoryScalarFieldEnum | PlaygroundHistoryScalarFieldEnum[]
+    distinct?: PromptScalarFieldEnum | PromptScalarFieldEnum[]
   }
 
   /**
-   * PlaygroundHistory create
+   * Prompt create
    */
-  export type PlaygroundHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
     /**
-     * The data needed to create a PlaygroundHistory.
+     * The data needed to create a Prompt.
      */
-    data: XOR<PlaygroundHistoryCreateInput, PlaygroundHistoryUncheckedCreateInput>
+    data: XOR<PromptCreateInput, PromptUncheckedCreateInput>
   }
 
   /**
-   * PlaygroundHistory createMany
+   * Prompt createMany
    */
-  export type PlaygroundHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many PlaygroundHistories.
+     * The data used to create many Prompts.
      */
-    data: PlaygroundHistoryCreateManyInput | PlaygroundHistoryCreateManyInput[]
+    data: PromptCreateManyInput | PromptCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * PlaygroundHistory createManyAndReturn
+   * Prompt createManyAndReturn
    */
-  export type PlaygroundHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelectCreateManyAndReturn<ExtArgs> | null
+    select?: PromptSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
-     * The data used to create many PlaygroundHistories.
+     * The data used to create many Prompts.
      */
-    data: PlaygroundHistoryCreateManyInput | PlaygroundHistoryCreateManyInput[]
+    data: PromptCreateManyInput | PromptCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * PlaygroundHistory update
+   * Prompt update
    */
-  export type PlaygroundHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
     /**
-     * The data needed to update a PlaygroundHistory.
+     * The data needed to update a Prompt.
      */
-    data: XOR<PlaygroundHistoryUpdateInput, PlaygroundHistoryUncheckedUpdateInput>
+    data: XOR<PromptUpdateInput, PromptUncheckedUpdateInput>
     /**
-     * Choose, which PlaygroundHistory to update.
+     * Choose, which Prompt to update.
      */
-    where: PlaygroundHistoryWhereUniqueInput
+    where: PromptWhereUniqueInput
   }
 
   /**
-   * PlaygroundHistory updateMany
+   * Prompt updateMany
    */
-  export type PlaygroundHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update PlaygroundHistories.
+     * The data used to update Prompts.
      */
-    data: XOR<PlaygroundHistoryUpdateManyMutationInput, PlaygroundHistoryUncheckedUpdateManyInput>
+    data: XOR<PromptUpdateManyMutationInput, PromptUncheckedUpdateManyInput>
     /**
-     * Filter which PlaygroundHistories to update
+     * Filter which Prompts to update
      */
-    where?: PlaygroundHistoryWhereInput
+    where?: PromptWhereInput
     /**
-     * Limit how many PlaygroundHistories to update.
+     * Limit how many Prompts to update.
      */
     limit?: number
   }
 
   /**
-   * PlaygroundHistory updateManyAndReturn
+   * Prompt updateManyAndReturn
    */
-  export type PlaygroundHistoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelectUpdateManyAndReturn<ExtArgs> | null
+    select?: PromptSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
-     * The data used to update PlaygroundHistories.
+     * The data used to update Prompts.
      */
-    data: XOR<PlaygroundHistoryUpdateManyMutationInput, PlaygroundHistoryUncheckedUpdateManyInput>
+    data: XOR<PromptUpdateManyMutationInput, PromptUncheckedUpdateManyInput>
     /**
-     * Filter which PlaygroundHistories to update
+     * Filter which Prompts to update
      */
-    where?: PlaygroundHistoryWhereInput
+    where?: PromptWhereInput
     /**
-     * Limit how many PlaygroundHistories to update.
+     * Limit how many Prompts to update.
      */
     limit?: number
   }
 
   /**
-   * PlaygroundHistory upsert
+   * Prompt upsert
    */
-  export type PlaygroundHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
     /**
-     * The filter to search for the PlaygroundHistory to update in case it exists.
+     * The filter to search for the Prompt to update in case it exists.
      */
-    where: PlaygroundHistoryWhereUniqueInput
+    where: PromptWhereUniqueInput
     /**
-     * In case the PlaygroundHistory found by the `where` argument doesn't exist, create a new PlaygroundHistory with this data.
+     * In case the Prompt found by the `where` argument doesn't exist, create a new Prompt with this data.
      */
-    create: XOR<PlaygroundHistoryCreateInput, PlaygroundHistoryUncheckedCreateInput>
+    create: XOR<PromptCreateInput, PromptUncheckedCreateInput>
     /**
-     * In case the PlaygroundHistory was found with the provided `where` argument, update it with this data.
+     * In case the Prompt was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<PlaygroundHistoryUpdateInput, PlaygroundHistoryUncheckedUpdateInput>
+    update: XOR<PromptUpdateInput, PromptUncheckedUpdateInput>
   }
 
   /**
-   * PlaygroundHistory delete
+   * Prompt delete
    */
-  export type PlaygroundHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
     /**
-     * Filter which PlaygroundHistory to delete.
+     * Filter which Prompt to delete.
      */
-    where: PlaygroundHistoryWhereUniqueInput
+    where: PromptWhereUniqueInput
   }
 
   /**
-   * PlaygroundHistory deleteMany
+   * Prompt deleteMany
    */
-  export type PlaygroundHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PlaygroundHistories to delete
+     * Filter which Prompts to delete
      */
-    where?: PlaygroundHistoryWhereInput
+    where?: PromptWhereInput
     /**
-     * Limit how many PlaygroundHistories to delete.
+     * Limit how many Prompts to delete.
      */
     limit?: number
   }
 
   /**
-   * PlaygroundHistory.responses
+   * Prompt.responses
    */
-  export type PlaygroundHistory$responsesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Prompt$responsesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
-    where?: PlaygroundResponseWhereInput
-    orderBy?: PlaygroundResponseOrderByWithRelationInput | PlaygroundResponseOrderByWithRelationInput[]
-    cursor?: PlaygroundResponseWhereUniqueInput
+    include?: PromptResponseInclude<ExtArgs> | null
+    where?: PromptResponseWhereInput
+    orderBy?: PromptResponseOrderByWithRelationInput | PromptResponseOrderByWithRelationInput[]
+    cursor?: PromptResponseWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: PlaygroundResponseScalarFieldEnum | PlaygroundResponseScalarFieldEnum[]
+    distinct?: PromptResponseScalarFieldEnum | PromptResponseScalarFieldEnum[]
   }
 
   /**
-   * PlaygroundHistory without action
+   * Prompt without action
    */
-  export type PlaygroundHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundHistory
+     * Select specific fields to fetch from the Prompt
      */
-    select?: PlaygroundHistorySelect<ExtArgs> | null
+    select?: PromptSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundHistory
+     * Omit specific fields from the Prompt
      */
-    omit?: PlaygroundHistoryOmit<ExtArgs> | null
+    omit?: PromptOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundHistoryInclude<ExtArgs> | null
+    include?: PromptInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model PlaygroundResponse
+   * Model PromptResponse
    */
 
-  export type AggregatePlaygroundResponse = {
-    _count: PlaygroundResponseCountAggregateOutputType | null
-    _avg: PlaygroundResponseAvgAggregateOutputType | null
-    _sum: PlaygroundResponseSumAggregateOutputType | null
-    _min: PlaygroundResponseMinAggregateOutputType | null
-    _max: PlaygroundResponseMaxAggregateOutputType | null
+  export type AggregatePromptResponse = {
+    _count: PromptResponseCountAggregateOutputType | null
+    _avg: PromptResponseAvgAggregateOutputType | null
+    _sum: PromptResponseSumAggregateOutputType | null
+    _min: PromptResponseMinAggregateOutputType | null
+    _max: PromptResponseMaxAggregateOutputType | null
   }
 
-  export type PlaygroundResponseAvgAggregateOutputType = {
+  export type PromptResponseAvgAggregateOutputType = {
     promptTokens: number | null
     completionTokens: number | null
     totalTokens: number | null
@@ -2054,7 +2054,7 @@ export namespace Prisma {
     estimatedCost: number | null
   }
 
-  export type PlaygroundResponseSumAggregateOutputType = {
+  export type PromptResponseSumAggregateOutputType = {
     promptTokens: number | null
     completionTokens: number | null
     totalTokens: number | null
@@ -2062,11 +2062,11 @@ export namespace Prisma {
     estimatedCost: number | null
   }
 
-  export type PlaygroundResponseMinAggregateOutputType = {
+  export type PromptResponseMinAggregateOutputType = {
     id: string | null
     modelId: string | null
     text: string | null
-    historyId: string | null
+    promptId: string | null
     promptTokens: number | null
     completionTokens: number | null
     totalTokens: number | null
@@ -2075,11 +2075,11 @@ export namespace Prisma {
     createdAt: Date | null
   }
 
-  export type PlaygroundResponseMaxAggregateOutputType = {
+  export type PromptResponseMaxAggregateOutputType = {
     id: string | null
     modelId: string | null
     text: string | null
-    historyId: string | null
+    promptId: string | null
     promptTokens: number | null
     completionTokens: number | null
     totalTokens: number | null
@@ -2088,11 +2088,11 @@ export namespace Prisma {
     createdAt: Date | null
   }
 
-  export type PlaygroundResponseCountAggregateOutputType = {
+  export type PromptResponseCountAggregateOutputType = {
     id: number
     modelId: number
     text: number
-    historyId: number
+    promptId: number
     promptTokens: number
     completionTokens: number
     totalTokens: number
@@ -2103,7 +2103,7 @@ export namespace Prisma {
   }
 
 
-  export type PlaygroundResponseAvgAggregateInputType = {
+  export type PromptResponseAvgAggregateInputType = {
     promptTokens?: true
     completionTokens?: true
     totalTokens?: true
@@ -2111,7 +2111,7 @@ export namespace Prisma {
     estimatedCost?: true
   }
 
-  export type PlaygroundResponseSumAggregateInputType = {
+  export type PromptResponseSumAggregateInputType = {
     promptTokens?: true
     completionTokens?: true
     totalTokens?: true
@@ -2119,11 +2119,11 @@ export namespace Prisma {
     estimatedCost?: true
   }
 
-  export type PlaygroundResponseMinAggregateInputType = {
+  export type PromptResponseMinAggregateInputType = {
     id?: true
     modelId?: true
     text?: true
-    historyId?: true
+    promptId?: true
     promptTokens?: true
     completionTokens?: true
     totalTokens?: true
@@ -2132,11 +2132,11 @@ export namespace Prisma {
     createdAt?: true
   }
 
-  export type PlaygroundResponseMaxAggregateInputType = {
+  export type PromptResponseMaxAggregateInputType = {
     id?: true
     modelId?: true
     text?: true
-    historyId?: true
+    promptId?: true
     promptTokens?: true
     completionTokens?: true
     totalTokens?: true
@@ -2145,11 +2145,11 @@ export namespace Prisma {
     createdAt?: true
   }
 
-  export type PlaygroundResponseCountAggregateInputType = {
+  export type PromptResponseCountAggregateInputType = {
     id?: true
     modelId?: true
     text?: true
-    historyId?: true
+    promptId?: true
     promptTokens?: true
     completionTokens?: true
     totalTokens?: true
@@ -2159,171 +2159,171 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type PlaygroundResponseAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PlaygroundResponse to aggregate.
+     * Filter which PromptResponse to aggregate.
      */
-    where?: PlaygroundResponseWhereInput
+    where?: PromptResponseWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlaygroundResponses to fetch.
+     * Determine the order of PromptResponses to fetch.
      */
-    orderBy?: PlaygroundResponseOrderByWithRelationInput | PlaygroundResponseOrderByWithRelationInput[]
+    orderBy?: PromptResponseOrderByWithRelationInput | PromptResponseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PlaygroundResponseWhereUniqueInput
+    cursor?: PromptResponseWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlaygroundResponses from the position of the cursor.
+     * Take `±n` PromptResponses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlaygroundResponses.
+     * Skip the first `n` PromptResponses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned PlaygroundResponses
+     * Count returned PromptResponses
     **/
-    _count?: true | PlaygroundResponseCountAggregateInputType
+    _count?: true | PromptResponseCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: PlaygroundResponseAvgAggregateInputType
+    _avg?: PromptResponseAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: PlaygroundResponseSumAggregateInputType
+    _sum?: PromptResponseSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PlaygroundResponseMinAggregateInputType
+    _min?: PromptResponseMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PlaygroundResponseMaxAggregateInputType
+    _max?: PromptResponseMaxAggregateInputType
   }
 
-  export type GetPlaygroundResponseAggregateType<T extends PlaygroundResponseAggregateArgs> = {
-        [P in keyof T & keyof AggregatePlaygroundResponse]: P extends '_count' | 'count'
+  export type GetPromptResponseAggregateType<T extends PromptResponseAggregateArgs> = {
+        [P in keyof T & keyof AggregatePromptResponse]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePlaygroundResponse[P]>
-      : GetScalarType<T[P], AggregatePlaygroundResponse[P]>
+        : GetScalarType<T[P], AggregatePromptResponse[P]>
+      : GetScalarType<T[P], AggregatePromptResponse[P]>
   }
 
 
 
 
-  export type PlaygroundResponseGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlaygroundResponseWhereInput
-    orderBy?: PlaygroundResponseOrderByWithAggregationInput | PlaygroundResponseOrderByWithAggregationInput[]
-    by: PlaygroundResponseScalarFieldEnum[] | PlaygroundResponseScalarFieldEnum
-    having?: PlaygroundResponseScalarWhereWithAggregatesInput
+  export type PromptResponseGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PromptResponseWhereInput
+    orderBy?: PromptResponseOrderByWithAggregationInput | PromptResponseOrderByWithAggregationInput[]
+    by: PromptResponseScalarFieldEnum[] | PromptResponseScalarFieldEnum
+    having?: PromptResponseScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PlaygroundResponseCountAggregateInputType | true
-    _avg?: PlaygroundResponseAvgAggregateInputType
-    _sum?: PlaygroundResponseSumAggregateInputType
-    _min?: PlaygroundResponseMinAggregateInputType
-    _max?: PlaygroundResponseMaxAggregateInputType
+    _count?: PromptResponseCountAggregateInputType | true
+    _avg?: PromptResponseAvgAggregateInputType
+    _sum?: PromptResponseSumAggregateInputType
+    _min?: PromptResponseMinAggregateInputType
+    _max?: PromptResponseMaxAggregateInputType
   }
 
-  export type PlaygroundResponseGroupByOutputType = {
+  export type PromptResponseGroupByOutputType = {
     id: string
     modelId: string
     text: string
-    historyId: string
+    promptId: string
     promptTokens: number
     completionTokens: number
     totalTokens: number
     responseTime: number
     estimatedCost: number
     createdAt: Date
-    _count: PlaygroundResponseCountAggregateOutputType | null
-    _avg: PlaygroundResponseAvgAggregateOutputType | null
-    _sum: PlaygroundResponseSumAggregateOutputType | null
-    _min: PlaygroundResponseMinAggregateOutputType | null
-    _max: PlaygroundResponseMaxAggregateOutputType | null
+    _count: PromptResponseCountAggregateOutputType | null
+    _avg: PromptResponseAvgAggregateOutputType | null
+    _sum: PromptResponseSumAggregateOutputType | null
+    _min: PromptResponseMinAggregateOutputType | null
+    _max: PromptResponseMaxAggregateOutputType | null
   }
 
-  type GetPlaygroundResponseGroupByPayload<T extends PlaygroundResponseGroupByArgs> = Prisma.PrismaPromise<
+  type GetPromptResponseGroupByPayload<T extends PromptResponseGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PlaygroundResponseGroupByOutputType, T['by']> &
+      PickEnumerable<PromptResponseGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PlaygroundResponseGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PromptResponseGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PlaygroundResponseGroupByOutputType[P]>
-            : GetScalarType<T[P], PlaygroundResponseGroupByOutputType[P]>
+              : GetScalarType<T[P], PromptResponseGroupByOutputType[P]>
+            : GetScalarType<T[P], PromptResponseGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PlaygroundResponseSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PromptResponseSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     modelId?: boolean
     text?: boolean
-    historyId?: boolean
+    promptId?: boolean
     promptTokens?: boolean
     completionTokens?: boolean
     totalTokens?: boolean
     responseTime?: boolean
     estimatedCost?: boolean
     createdAt?: boolean
-    history?: boolean | PlaygroundHistoryDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["playgroundResponse"]>
+    prompt?: boolean | PromptDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["promptResponse"]>
 
-  export type PlaygroundResponseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PromptResponseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     modelId?: boolean
     text?: boolean
-    historyId?: boolean
+    promptId?: boolean
     promptTokens?: boolean
     completionTokens?: boolean
     totalTokens?: boolean
     responseTime?: boolean
     estimatedCost?: boolean
     createdAt?: boolean
-    history?: boolean | PlaygroundHistoryDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["playgroundResponse"]>
+    prompt?: boolean | PromptDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["promptResponse"]>
 
-  export type PlaygroundResponseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PromptResponseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     modelId?: boolean
     text?: boolean
-    historyId?: boolean
+    promptId?: boolean
     promptTokens?: boolean
     completionTokens?: boolean
     totalTokens?: boolean
     responseTime?: boolean
     estimatedCost?: boolean
     createdAt?: boolean
-    history?: boolean | PlaygroundHistoryDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["playgroundResponse"]>
+    prompt?: boolean | PromptDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["promptResponse"]>
 
-  export type PlaygroundResponseSelectScalar = {
+  export type PromptResponseSelectScalar = {
     id?: boolean
     modelId?: boolean
     text?: boolean
-    historyId?: boolean
+    promptId?: boolean
     promptTokens?: boolean
     completionTokens?: boolean
     totalTokens?: boolean
@@ -2332,163 +2332,163 @@ export namespace Prisma {
     createdAt?: boolean
   }
 
-  export type PlaygroundResponseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "modelId" | "text" | "historyId" | "promptTokens" | "completionTokens" | "totalTokens" | "responseTime" | "estimatedCost" | "createdAt", ExtArgs["result"]["playgroundResponse"]>
-  export type PlaygroundResponseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    history?: boolean | PlaygroundHistoryDefaultArgs<ExtArgs>
+  export type PromptResponseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "modelId" | "text" | "promptId" | "promptTokens" | "completionTokens" | "totalTokens" | "responseTime" | "estimatedCost" | "createdAt", ExtArgs["result"]["promptResponse"]>
+  export type PromptResponseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    prompt?: boolean | PromptDefaultArgs<ExtArgs>
   }
-  export type PlaygroundResponseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    history?: boolean | PlaygroundHistoryDefaultArgs<ExtArgs>
+  export type PromptResponseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    prompt?: boolean | PromptDefaultArgs<ExtArgs>
   }
-  export type PlaygroundResponseIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    history?: boolean | PlaygroundHistoryDefaultArgs<ExtArgs>
+  export type PromptResponseIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    prompt?: boolean | PromptDefaultArgs<ExtArgs>
   }
 
-  export type $PlaygroundResponsePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "PlaygroundResponse"
+  export type $PromptResponsePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PromptResponse"
     objects: {
-      history: Prisma.$PlaygroundHistoryPayload<ExtArgs>
+      prompt: Prisma.$PromptPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       modelId: string
       text: string
-      historyId: string
+      promptId: string
       promptTokens: number
       completionTokens: number
       totalTokens: number
       responseTime: number
       estimatedCost: number
       createdAt: Date
-    }, ExtArgs["result"]["playgroundResponse"]>
+    }, ExtArgs["result"]["promptResponse"]>
     composites: {}
   }
 
-  type PlaygroundResponseGetPayload<S extends boolean | null | undefined | PlaygroundResponseDefaultArgs> = $Result.GetResult<Prisma.$PlaygroundResponsePayload, S>
+  type PromptResponseGetPayload<S extends boolean | null | undefined | PromptResponseDefaultArgs> = $Result.GetResult<Prisma.$PromptResponsePayload, S>
 
-  type PlaygroundResponseCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PlaygroundResponseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PlaygroundResponseCountAggregateInputType | true
+  type PromptResponseCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PromptResponseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PromptResponseCountAggregateInputType | true
     }
 
-  export interface PlaygroundResponseDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PlaygroundResponse'], meta: { name: 'PlaygroundResponse' } }
+  export interface PromptResponseDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PromptResponse'], meta: { name: 'PromptResponse' } }
     /**
-     * Find zero or one PlaygroundResponse that matches the filter.
-     * @param {PlaygroundResponseFindUniqueArgs} args - Arguments to find a PlaygroundResponse
+     * Find zero or one PromptResponse that matches the filter.
+     * @param {PromptResponseFindUniqueArgs} args - Arguments to find a PromptResponse
      * @example
-     * // Get one PlaygroundResponse
-     * const playgroundResponse = await prisma.playgroundResponse.findUnique({
+     * // Get one PromptResponse
+     * const promptResponse = await prisma.promptResponse.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PlaygroundResponseFindUniqueArgs>(args: SelectSubset<T, PlaygroundResponseFindUniqueArgs<ExtArgs>>): Prisma__PlaygroundResponseClient<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends PromptResponseFindUniqueArgs>(args: SelectSubset<T, PromptResponseFindUniqueArgs<ExtArgs>>): Prisma__PromptResponseClient<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one PlaygroundResponse that matches the filter or throw an error with `error.code='P2025'`
+     * Find one PromptResponse that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PlaygroundResponseFindUniqueOrThrowArgs} args - Arguments to find a PlaygroundResponse
+     * @param {PromptResponseFindUniqueOrThrowArgs} args - Arguments to find a PromptResponse
      * @example
-     * // Get one PlaygroundResponse
-     * const playgroundResponse = await prisma.playgroundResponse.findUniqueOrThrow({
+     * // Get one PromptResponse
+     * const promptResponse = await prisma.promptResponse.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PlaygroundResponseFindUniqueOrThrowArgs>(args: SelectSubset<T, PlaygroundResponseFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PlaygroundResponseClient<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends PromptResponseFindUniqueOrThrowArgs>(args: SelectSubset<T, PromptResponseFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PromptResponseClient<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PlaygroundResponse that matches the filter.
+     * Find the first PromptResponse that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundResponseFindFirstArgs} args - Arguments to find a PlaygroundResponse
+     * @param {PromptResponseFindFirstArgs} args - Arguments to find a PromptResponse
      * @example
-     * // Get one PlaygroundResponse
-     * const playgroundResponse = await prisma.playgroundResponse.findFirst({
+     * // Get one PromptResponse
+     * const promptResponse = await prisma.promptResponse.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PlaygroundResponseFindFirstArgs>(args?: SelectSubset<T, PlaygroundResponseFindFirstArgs<ExtArgs>>): Prisma__PlaygroundResponseClient<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends PromptResponseFindFirstArgs>(args?: SelectSubset<T, PromptResponseFindFirstArgs<ExtArgs>>): Prisma__PromptResponseClient<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PlaygroundResponse that matches the filter or
+     * Find the first PromptResponse that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundResponseFindFirstOrThrowArgs} args - Arguments to find a PlaygroundResponse
+     * @param {PromptResponseFindFirstOrThrowArgs} args - Arguments to find a PromptResponse
      * @example
-     * // Get one PlaygroundResponse
-     * const playgroundResponse = await prisma.playgroundResponse.findFirstOrThrow({
+     * // Get one PromptResponse
+     * const promptResponse = await prisma.promptResponse.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PlaygroundResponseFindFirstOrThrowArgs>(args?: SelectSubset<T, PlaygroundResponseFindFirstOrThrowArgs<ExtArgs>>): Prisma__PlaygroundResponseClient<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends PromptResponseFindFirstOrThrowArgs>(args?: SelectSubset<T, PromptResponseFindFirstOrThrowArgs<ExtArgs>>): Prisma__PromptResponseClient<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more PlaygroundResponses that matches the filter.
+     * Find zero or more PromptResponses that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundResponseFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PromptResponseFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all PlaygroundResponses
-     * const playgroundResponses = await prisma.playgroundResponse.findMany()
+     * // Get all PromptResponses
+     * const promptResponses = await prisma.promptResponse.findMany()
      * 
-     * // Get first 10 PlaygroundResponses
-     * const playgroundResponses = await prisma.playgroundResponse.findMany({ take: 10 })
+     * // Get first 10 PromptResponses
+     * const promptResponses = await prisma.promptResponse.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const playgroundResponseWithIdOnly = await prisma.playgroundResponse.findMany({ select: { id: true } })
+     * const promptResponseWithIdOnly = await prisma.promptResponse.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends PlaygroundResponseFindManyArgs>(args?: SelectSubset<T, PlaygroundResponseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends PromptResponseFindManyArgs>(args?: SelectSubset<T, PromptResponseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a PlaygroundResponse.
-     * @param {PlaygroundResponseCreateArgs} args - Arguments to create a PlaygroundResponse.
+     * Create a PromptResponse.
+     * @param {PromptResponseCreateArgs} args - Arguments to create a PromptResponse.
      * @example
-     * // Create one PlaygroundResponse
-     * const PlaygroundResponse = await prisma.playgroundResponse.create({
+     * // Create one PromptResponse
+     * const PromptResponse = await prisma.promptResponse.create({
      *   data: {
-     *     // ... data to create a PlaygroundResponse
+     *     // ... data to create a PromptResponse
      *   }
      * })
      * 
      */
-    create<T extends PlaygroundResponseCreateArgs>(args: SelectSubset<T, PlaygroundResponseCreateArgs<ExtArgs>>): Prisma__PlaygroundResponseClient<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends PromptResponseCreateArgs>(args: SelectSubset<T, PromptResponseCreateArgs<ExtArgs>>): Prisma__PromptResponseClient<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many PlaygroundResponses.
-     * @param {PlaygroundResponseCreateManyArgs} args - Arguments to create many PlaygroundResponses.
+     * Create many PromptResponses.
+     * @param {PromptResponseCreateManyArgs} args - Arguments to create many PromptResponses.
      * @example
-     * // Create many PlaygroundResponses
-     * const playgroundResponse = await prisma.playgroundResponse.createMany({
+     * // Create many PromptResponses
+     * const promptResponse = await prisma.promptResponse.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PlaygroundResponseCreateManyArgs>(args?: SelectSubset<T, PlaygroundResponseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PromptResponseCreateManyArgs>(args?: SelectSubset<T, PromptResponseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many PlaygroundResponses and returns the data saved in the database.
-     * @param {PlaygroundResponseCreateManyAndReturnArgs} args - Arguments to create many PlaygroundResponses.
+     * Create many PromptResponses and returns the data saved in the database.
+     * @param {PromptResponseCreateManyAndReturnArgs} args - Arguments to create many PromptResponses.
      * @example
-     * // Create many PlaygroundResponses
-     * const playgroundResponse = await prisma.playgroundResponse.createManyAndReturn({
+     * // Create many PromptResponses
+     * const promptResponse = await prisma.promptResponse.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many PlaygroundResponses and only return the `id`
-     * const playgroundResponseWithIdOnly = await prisma.playgroundResponse.createManyAndReturn({
+     * // Create many PromptResponses and only return the `id`
+     * const promptResponseWithIdOnly = await prisma.promptResponse.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2498,28 +2498,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends PlaygroundResponseCreateManyAndReturnArgs>(args?: SelectSubset<T, PlaygroundResponseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends PromptResponseCreateManyAndReturnArgs>(args?: SelectSubset<T, PromptResponseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a PlaygroundResponse.
-     * @param {PlaygroundResponseDeleteArgs} args - Arguments to delete one PlaygroundResponse.
+     * Delete a PromptResponse.
+     * @param {PromptResponseDeleteArgs} args - Arguments to delete one PromptResponse.
      * @example
-     * // Delete one PlaygroundResponse
-     * const PlaygroundResponse = await prisma.playgroundResponse.delete({
+     * // Delete one PromptResponse
+     * const PromptResponse = await prisma.promptResponse.delete({
      *   where: {
-     *     // ... filter to delete one PlaygroundResponse
+     *     // ... filter to delete one PromptResponse
      *   }
      * })
      * 
      */
-    delete<T extends PlaygroundResponseDeleteArgs>(args: SelectSubset<T, PlaygroundResponseDeleteArgs<ExtArgs>>): Prisma__PlaygroundResponseClient<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends PromptResponseDeleteArgs>(args: SelectSubset<T, PromptResponseDeleteArgs<ExtArgs>>): Prisma__PromptResponseClient<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one PlaygroundResponse.
-     * @param {PlaygroundResponseUpdateArgs} args - Arguments to update one PlaygroundResponse.
+     * Update one PromptResponse.
+     * @param {PromptResponseUpdateArgs} args - Arguments to update one PromptResponse.
      * @example
-     * // Update one PlaygroundResponse
-     * const playgroundResponse = await prisma.playgroundResponse.update({
+     * // Update one PromptResponse
+     * const promptResponse = await prisma.promptResponse.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2529,30 +2529,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PlaygroundResponseUpdateArgs>(args: SelectSubset<T, PlaygroundResponseUpdateArgs<ExtArgs>>): Prisma__PlaygroundResponseClient<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends PromptResponseUpdateArgs>(args: SelectSubset<T, PromptResponseUpdateArgs<ExtArgs>>): Prisma__PromptResponseClient<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more PlaygroundResponses.
-     * @param {PlaygroundResponseDeleteManyArgs} args - Arguments to filter PlaygroundResponses to delete.
+     * Delete zero or more PromptResponses.
+     * @param {PromptResponseDeleteManyArgs} args - Arguments to filter PromptResponses to delete.
      * @example
-     * // Delete a few PlaygroundResponses
-     * const { count } = await prisma.playgroundResponse.deleteMany({
+     * // Delete a few PromptResponses
+     * const { count } = await prisma.promptResponse.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PlaygroundResponseDeleteManyArgs>(args?: SelectSubset<T, PlaygroundResponseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PromptResponseDeleteManyArgs>(args?: SelectSubset<T, PromptResponseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PlaygroundResponses.
+     * Update zero or more PromptResponses.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundResponseUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PromptResponseUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many PlaygroundResponses
-     * const playgroundResponse = await prisma.playgroundResponse.updateMany({
+     * // Update many PromptResponses
+     * const promptResponse = await prisma.promptResponse.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2562,14 +2562,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PlaygroundResponseUpdateManyArgs>(args: SelectSubset<T, PlaygroundResponseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PromptResponseUpdateManyArgs>(args: SelectSubset<T, PromptResponseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PlaygroundResponses and returns the data updated in the database.
-     * @param {PlaygroundResponseUpdateManyAndReturnArgs} args - Arguments to update many PlaygroundResponses.
+     * Update zero or more PromptResponses and returns the data updated in the database.
+     * @param {PromptResponseUpdateManyAndReturnArgs} args - Arguments to update many PromptResponses.
      * @example
-     * // Update many PlaygroundResponses
-     * const playgroundResponse = await prisma.playgroundResponse.updateManyAndReturn({
+     * // Update many PromptResponses
+     * const promptResponse = await prisma.promptResponse.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2578,8 +2578,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more PlaygroundResponses and only return the `id`
-     * const playgroundResponseWithIdOnly = await prisma.playgroundResponse.updateManyAndReturn({
+     * // Update zero or more PromptResponses and only return the `id`
+     * const promptResponseWithIdOnly = await prisma.promptResponse.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2592,56 +2592,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends PlaygroundResponseUpdateManyAndReturnArgs>(args: SelectSubset<T, PlaygroundResponseUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends PromptResponseUpdateManyAndReturnArgs>(args: SelectSubset<T, PromptResponseUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one PlaygroundResponse.
-     * @param {PlaygroundResponseUpsertArgs} args - Arguments to update or create a PlaygroundResponse.
+     * Create or update one PromptResponse.
+     * @param {PromptResponseUpsertArgs} args - Arguments to update or create a PromptResponse.
      * @example
-     * // Update or create a PlaygroundResponse
-     * const playgroundResponse = await prisma.playgroundResponse.upsert({
+     * // Update or create a PromptResponse
+     * const promptResponse = await prisma.promptResponse.upsert({
      *   create: {
-     *     // ... data to create a PlaygroundResponse
+     *     // ... data to create a PromptResponse
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the PlaygroundResponse we want to update
+     *     // ... the filter for the PromptResponse we want to update
      *   }
      * })
      */
-    upsert<T extends PlaygroundResponseUpsertArgs>(args: SelectSubset<T, PlaygroundResponseUpsertArgs<ExtArgs>>): Prisma__PlaygroundResponseClient<$Result.GetResult<Prisma.$PlaygroundResponsePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends PromptResponseUpsertArgs>(args: SelectSubset<T, PromptResponseUpsertArgs<ExtArgs>>): Prisma__PromptResponseClient<$Result.GetResult<Prisma.$PromptResponsePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of PlaygroundResponses.
+     * Count the number of PromptResponses.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundResponseCountArgs} args - Arguments to filter PlaygroundResponses to count.
+     * @param {PromptResponseCountArgs} args - Arguments to filter PromptResponses to count.
      * @example
-     * // Count the number of PlaygroundResponses
-     * const count = await prisma.playgroundResponse.count({
+     * // Count the number of PromptResponses
+     * const count = await prisma.promptResponse.count({
      *   where: {
-     *     // ... the filter for the PlaygroundResponses we want to count
+     *     // ... the filter for the PromptResponses we want to count
      *   }
      * })
     **/
-    count<T extends PlaygroundResponseCountArgs>(
-      args?: Subset<T, PlaygroundResponseCountArgs>,
+    count<T extends PromptResponseCountArgs>(
+      args?: Subset<T, PromptResponseCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PlaygroundResponseCountAggregateOutputType>
+          : GetScalarType<T['select'], PromptResponseCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a PlaygroundResponse.
+     * Allows you to perform aggregations operations on a PromptResponse.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundResponseAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PromptResponseAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2661,13 +2661,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PlaygroundResponseAggregateArgs>(args: Subset<T, PlaygroundResponseAggregateArgs>): Prisma.PrismaPromise<GetPlaygroundResponseAggregateType<T>>
+    aggregate<T extends PromptResponseAggregateArgs>(args: Subset<T, PromptResponseAggregateArgs>): Prisma.PrismaPromise<GetPromptResponseAggregateType<T>>
 
     /**
-     * Group by PlaygroundResponse.
+     * Group by PromptResponse.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlaygroundResponseGroupByArgs} args - Group by arguments.
+     * @param {PromptResponseGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2682,14 +2682,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PlaygroundResponseGroupByArgs,
+      T extends PromptResponseGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PlaygroundResponseGroupByArgs['orderBy'] }
-        : { orderBy?: PlaygroundResponseGroupByArgs['orderBy'] },
+        ? { orderBy: PromptResponseGroupByArgs['orderBy'] }
+        : { orderBy?: PromptResponseGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2738,22 +2738,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PlaygroundResponseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPlaygroundResponseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PromptResponseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPromptResponseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the PlaygroundResponse model
+   * Fields of the PromptResponse model
    */
-  readonly fields: PlaygroundResponseFieldRefs;
+  readonly fields: PromptResponseFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for PlaygroundResponse.
+   * The delegate class that acts as a "Promise-like" for PromptResponse.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PlaygroundResponseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PromptResponseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    history<T extends PlaygroundHistoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PlaygroundHistoryDefaultArgs<ExtArgs>>): Prisma__PlaygroundHistoryClient<$Result.GetResult<Prisma.$PlaygroundHistoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    prompt<T extends PromptDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PromptDefaultArgs<ExtArgs>>): Prisma__PromptClient<$Result.GetResult<Prisma.$PromptPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2780,430 +2780,430 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the PlaygroundResponse model
+   * Fields of the PromptResponse model
    */
-  interface PlaygroundResponseFieldRefs {
-    readonly id: FieldRef<"PlaygroundResponse", 'String'>
-    readonly modelId: FieldRef<"PlaygroundResponse", 'String'>
-    readonly text: FieldRef<"PlaygroundResponse", 'String'>
-    readonly historyId: FieldRef<"PlaygroundResponse", 'String'>
-    readonly promptTokens: FieldRef<"PlaygroundResponse", 'Int'>
-    readonly completionTokens: FieldRef<"PlaygroundResponse", 'Int'>
-    readonly totalTokens: FieldRef<"PlaygroundResponse", 'Int'>
-    readonly responseTime: FieldRef<"PlaygroundResponse", 'Float'>
-    readonly estimatedCost: FieldRef<"PlaygroundResponse", 'Float'>
-    readonly createdAt: FieldRef<"PlaygroundResponse", 'DateTime'>
+  interface PromptResponseFieldRefs {
+    readonly id: FieldRef<"PromptResponse", 'String'>
+    readonly modelId: FieldRef<"PromptResponse", 'String'>
+    readonly text: FieldRef<"PromptResponse", 'String'>
+    readonly promptId: FieldRef<"PromptResponse", 'String'>
+    readonly promptTokens: FieldRef<"PromptResponse", 'Int'>
+    readonly completionTokens: FieldRef<"PromptResponse", 'Int'>
+    readonly totalTokens: FieldRef<"PromptResponse", 'Int'>
+    readonly responseTime: FieldRef<"PromptResponse", 'Float'>
+    readonly estimatedCost: FieldRef<"PromptResponse", 'Float'>
+    readonly createdAt: FieldRef<"PromptResponse", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * PlaygroundResponse findUnique
+   * PromptResponse findUnique
    */
-  export type PlaygroundResponseFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundResponse to fetch.
+     * Filter, which PromptResponse to fetch.
      */
-    where: PlaygroundResponseWhereUniqueInput
+    where: PromptResponseWhereUniqueInput
   }
 
   /**
-   * PlaygroundResponse findUniqueOrThrow
+   * PromptResponse findUniqueOrThrow
    */
-  export type PlaygroundResponseFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundResponse to fetch.
+     * Filter, which PromptResponse to fetch.
      */
-    where: PlaygroundResponseWhereUniqueInput
+    where: PromptResponseWhereUniqueInput
   }
 
   /**
-   * PlaygroundResponse findFirst
+   * PromptResponse findFirst
    */
-  export type PlaygroundResponseFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundResponse to fetch.
+     * Filter, which PromptResponse to fetch.
      */
-    where?: PlaygroundResponseWhereInput
+    where?: PromptResponseWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlaygroundResponses to fetch.
+     * Determine the order of PromptResponses to fetch.
      */
-    orderBy?: PlaygroundResponseOrderByWithRelationInput | PlaygroundResponseOrderByWithRelationInput[]
+    orderBy?: PromptResponseOrderByWithRelationInput | PromptResponseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PlaygroundResponses.
+     * Sets the position for searching for PromptResponses.
      */
-    cursor?: PlaygroundResponseWhereUniqueInput
+    cursor?: PromptResponseWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlaygroundResponses from the position of the cursor.
+     * Take `±n` PromptResponses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlaygroundResponses.
+     * Skip the first `n` PromptResponses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PlaygroundResponses.
+     * Filter by unique combinations of PromptResponses.
      */
-    distinct?: PlaygroundResponseScalarFieldEnum | PlaygroundResponseScalarFieldEnum[]
+    distinct?: PromptResponseScalarFieldEnum | PromptResponseScalarFieldEnum[]
   }
 
   /**
-   * PlaygroundResponse findFirstOrThrow
+   * PromptResponse findFirstOrThrow
    */
-  export type PlaygroundResponseFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundResponse to fetch.
+     * Filter, which PromptResponse to fetch.
      */
-    where?: PlaygroundResponseWhereInput
+    where?: PromptResponseWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlaygroundResponses to fetch.
+     * Determine the order of PromptResponses to fetch.
      */
-    orderBy?: PlaygroundResponseOrderByWithRelationInput | PlaygroundResponseOrderByWithRelationInput[]
+    orderBy?: PromptResponseOrderByWithRelationInput | PromptResponseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PlaygroundResponses.
+     * Sets the position for searching for PromptResponses.
      */
-    cursor?: PlaygroundResponseWhereUniqueInput
+    cursor?: PromptResponseWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlaygroundResponses from the position of the cursor.
+     * Take `±n` PromptResponses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlaygroundResponses.
+     * Skip the first `n` PromptResponses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PlaygroundResponses.
+     * Filter by unique combinations of PromptResponses.
      */
-    distinct?: PlaygroundResponseScalarFieldEnum | PlaygroundResponseScalarFieldEnum[]
+    distinct?: PromptResponseScalarFieldEnum | PromptResponseScalarFieldEnum[]
   }
 
   /**
-   * PlaygroundResponse findMany
+   * PromptResponse findMany
    */
-  export type PlaygroundResponseFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
     /**
-     * Filter, which PlaygroundResponses to fetch.
+     * Filter, which PromptResponses to fetch.
      */
-    where?: PlaygroundResponseWhereInput
+    where?: PromptResponseWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlaygroundResponses to fetch.
+     * Determine the order of PromptResponses to fetch.
      */
-    orderBy?: PlaygroundResponseOrderByWithRelationInput | PlaygroundResponseOrderByWithRelationInput[]
+    orderBy?: PromptResponseOrderByWithRelationInput | PromptResponseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing PlaygroundResponses.
+     * Sets the position for listing PromptResponses.
      */
-    cursor?: PlaygroundResponseWhereUniqueInput
+    cursor?: PromptResponseWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlaygroundResponses from the position of the cursor.
+     * Take `±n` PromptResponses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlaygroundResponses.
+     * Skip the first `n` PromptResponses.
      */
     skip?: number
-    distinct?: PlaygroundResponseScalarFieldEnum | PlaygroundResponseScalarFieldEnum[]
+    distinct?: PromptResponseScalarFieldEnum | PromptResponseScalarFieldEnum[]
   }
 
   /**
-   * PlaygroundResponse create
+   * PromptResponse create
    */
-  export type PlaygroundResponseCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
     /**
-     * The data needed to create a PlaygroundResponse.
+     * The data needed to create a PromptResponse.
      */
-    data: XOR<PlaygroundResponseCreateInput, PlaygroundResponseUncheckedCreateInput>
+    data: XOR<PromptResponseCreateInput, PromptResponseUncheckedCreateInput>
   }
 
   /**
-   * PlaygroundResponse createMany
+   * PromptResponse createMany
    */
-  export type PlaygroundResponseCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many PlaygroundResponses.
+     * The data used to create many PromptResponses.
      */
-    data: PlaygroundResponseCreateManyInput | PlaygroundResponseCreateManyInput[]
+    data: PromptResponseCreateManyInput | PromptResponseCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * PlaygroundResponse createManyAndReturn
+   * PromptResponse createManyAndReturn
    */
-  export type PlaygroundResponseCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelectCreateManyAndReturn<ExtArgs> | null
+    select?: PromptResponseSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
-     * The data used to create many PlaygroundResponses.
+     * The data used to create many PromptResponses.
      */
-    data: PlaygroundResponseCreateManyInput | PlaygroundResponseCreateManyInput[]
+    data: PromptResponseCreateManyInput | PromptResponseCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: PromptResponseIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * PlaygroundResponse update
+   * PromptResponse update
    */
-  export type PlaygroundResponseUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
     /**
-     * The data needed to update a PlaygroundResponse.
+     * The data needed to update a PromptResponse.
      */
-    data: XOR<PlaygroundResponseUpdateInput, PlaygroundResponseUncheckedUpdateInput>
+    data: XOR<PromptResponseUpdateInput, PromptResponseUncheckedUpdateInput>
     /**
-     * Choose, which PlaygroundResponse to update.
+     * Choose, which PromptResponse to update.
      */
-    where: PlaygroundResponseWhereUniqueInput
+    where: PromptResponseWhereUniqueInput
   }
 
   /**
-   * PlaygroundResponse updateMany
+   * PromptResponse updateMany
    */
-  export type PlaygroundResponseUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update PlaygroundResponses.
+     * The data used to update PromptResponses.
      */
-    data: XOR<PlaygroundResponseUpdateManyMutationInput, PlaygroundResponseUncheckedUpdateManyInput>
+    data: XOR<PromptResponseUpdateManyMutationInput, PromptResponseUncheckedUpdateManyInput>
     /**
-     * Filter which PlaygroundResponses to update
+     * Filter which PromptResponses to update
      */
-    where?: PlaygroundResponseWhereInput
+    where?: PromptResponseWhereInput
     /**
-     * Limit how many PlaygroundResponses to update.
+     * Limit how many PromptResponses to update.
      */
     limit?: number
   }
 
   /**
-   * PlaygroundResponse updateManyAndReturn
+   * PromptResponse updateManyAndReturn
    */
-  export type PlaygroundResponseUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: PromptResponseSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
-     * The data used to update PlaygroundResponses.
+     * The data used to update PromptResponses.
      */
-    data: XOR<PlaygroundResponseUpdateManyMutationInput, PlaygroundResponseUncheckedUpdateManyInput>
+    data: XOR<PromptResponseUpdateManyMutationInput, PromptResponseUncheckedUpdateManyInput>
     /**
-     * Filter which PlaygroundResponses to update
+     * Filter which PromptResponses to update
      */
-    where?: PlaygroundResponseWhereInput
+    where?: PromptResponseWhereInput
     /**
-     * Limit how many PlaygroundResponses to update.
+     * Limit how many PromptResponses to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: PromptResponseIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * PlaygroundResponse upsert
+   * PromptResponse upsert
    */
-  export type PlaygroundResponseUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
     /**
-     * The filter to search for the PlaygroundResponse to update in case it exists.
+     * The filter to search for the PromptResponse to update in case it exists.
      */
-    where: PlaygroundResponseWhereUniqueInput
+    where: PromptResponseWhereUniqueInput
     /**
-     * In case the PlaygroundResponse found by the `where` argument doesn't exist, create a new PlaygroundResponse with this data.
+     * In case the PromptResponse found by the `where` argument doesn't exist, create a new PromptResponse with this data.
      */
-    create: XOR<PlaygroundResponseCreateInput, PlaygroundResponseUncheckedCreateInput>
+    create: XOR<PromptResponseCreateInput, PromptResponseUncheckedCreateInput>
     /**
-     * In case the PlaygroundResponse was found with the provided `where` argument, update it with this data.
+     * In case the PromptResponse was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<PlaygroundResponseUpdateInput, PlaygroundResponseUncheckedUpdateInput>
+    update: XOR<PromptResponseUpdateInput, PromptResponseUncheckedUpdateInput>
   }
 
   /**
-   * PlaygroundResponse delete
+   * PromptResponse delete
    */
-  export type PlaygroundResponseDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
     /**
-     * Filter which PlaygroundResponse to delete.
+     * Filter which PromptResponse to delete.
      */
-    where: PlaygroundResponseWhereUniqueInput
+    where: PromptResponseWhereUniqueInput
   }
 
   /**
-   * PlaygroundResponse deleteMany
+   * PromptResponse deleteMany
    */
-  export type PlaygroundResponseDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PlaygroundResponses to delete
+     * Filter which PromptResponses to delete
      */
-    where?: PlaygroundResponseWhereInput
+    where?: PromptResponseWhereInput
     /**
-     * Limit how many PlaygroundResponses to delete.
+     * Limit how many PromptResponses to delete.
      */
     limit?: number
   }
 
   /**
-   * PlaygroundResponse without action
+   * PromptResponse without action
    */
-  export type PlaygroundResponseDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PromptResponseDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlaygroundResponse
+     * Select specific fields to fetch from the PromptResponse
      */
-    select?: PlaygroundResponseSelect<ExtArgs> | null
+    select?: PromptResponseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlaygroundResponse
+     * Omit specific fields from the PromptResponse
      */
-    omit?: PlaygroundResponseOmit<ExtArgs> | null
+    omit?: PromptResponseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlaygroundResponseInclude<ExtArgs> | null
+    include?: PromptResponseInclude<ExtArgs> | null
   }
 
 
@@ -3221,20 +3221,20 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const PlaygroundHistoryScalarFieldEnum: {
+  export const PromptScalarFieldEnum: {
     id: 'id',
     prompt: 'prompt',
     timestamp: 'timestamp'
   };
 
-  export type PlaygroundHistoryScalarFieldEnum = (typeof PlaygroundHistoryScalarFieldEnum)[keyof typeof PlaygroundHistoryScalarFieldEnum]
+  export type PromptScalarFieldEnum = (typeof PromptScalarFieldEnum)[keyof typeof PromptScalarFieldEnum]
 
 
-  export const PlaygroundResponseScalarFieldEnum: {
+  export const PromptResponseScalarFieldEnum: {
     id: 'id',
     modelId: 'modelId',
     text: 'text',
-    historyId: 'historyId',
+    promptId: 'promptId',
     promptTokens: 'promptTokens',
     completionTokens: 'completionTokens',
     totalTokens: 'totalTokens',
@@ -3243,7 +3243,7 @@ export namespace Prisma {
     createdAt: 'createdAt'
   };
 
-  export type PlaygroundResponseScalarFieldEnum = (typeof PlaygroundResponseScalarFieldEnum)[keyof typeof PlaygroundResponseScalarFieldEnum]
+  export type PromptResponseScalarFieldEnum = (typeof PromptResponseScalarFieldEnum)[keyof typeof PromptResponseScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3326,180 +3326,180 @@ export namespace Prisma {
    */
 
 
-  export type PlaygroundHistoryWhereInput = {
-    AND?: PlaygroundHistoryWhereInput | PlaygroundHistoryWhereInput[]
-    OR?: PlaygroundHistoryWhereInput[]
-    NOT?: PlaygroundHistoryWhereInput | PlaygroundHistoryWhereInput[]
-    id?: StringFilter<"PlaygroundHistory"> | string
-    prompt?: StringFilter<"PlaygroundHistory"> | string
-    timestamp?: DateTimeFilter<"PlaygroundHistory"> | Date | string
-    responses?: PlaygroundResponseListRelationFilter
+  export type PromptWhereInput = {
+    AND?: PromptWhereInput | PromptWhereInput[]
+    OR?: PromptWhereInput[]
+    NOT?: PromptWhereInput | PromptWhereInput[]
+    id?: StringFilter<"Prompt"> | string
+    prompt?: StringFilter<"Prompt"> | string
+    timestamp?: DateTimeFilter<"Prompt"> | Date | string
+    responses?: PromptResponseListRelationFilter
   }
 
-  export type PlaygroundHistoryOrderByWithRelationInput = {
+  export type PromptOrderByWithRelationInput = {
     id?: SortOrder
     prompt?: SortOrder
     timestamp?: SortOrder
-    responses?: PlaygroundResponseOrderByRelationAggregateInput
+    responses?: PromptResponseOrderByRelationAggregateInput
   }
 
-  export type PlaygroundHistoryWhereUniqueInput = Prisma.AtLeast<{
+  export type PromptWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: PlaygroundHistoryWhereInput | PlaygroundHistoryWhereInput[]
-    OR?: PlaygroundHistoryWhereInput[]
-    NOT?: PlaygroundHistoryWhereInput | PlaygroundHistoryWhereInput[]
-    prompt?: StringFilter<"PlaygroundHistory"> | string
-    timestamp?: DateTimeFilter<"PlaygroundHistory"> | Date | string
-    responses?: PlaygroundResponseListRelationFilter
+    AND?: PromptWhereInput | PromptWhereInput[]
+    OR?: PromptWhereInput[]
+    NOT?: PromptWhereInput | PromptWhereInput[]
+    prompt?: StringFilter<"Prompt"> | string
+    timestamp?: DateTimeFilter<"Prompt"> | Date | string
+    responses?: PromptResponseListRelationFilter
   }, "id">
 
-  export type PlaygroundHistoryOrderByWithAggregationInput = {
+  export type PromptOrderByWithAggregationInput = {
     id?: SortOrder
     prompt?: SortOrder
     timestamp?: SortOrder
-    _count?: PlaygroundHistoryCountOrderByAggregateInput
-    _max?: PlaygroundHistoryMaxOrderByAggregateInput
-    _min?: PlaygroundHistoryMinOrderByAggregateInput
+    _count?: PromptCountOrderByAggregateInput
+    _max?: PromptMaxOrderByAggregateInput
+    _min?: PromptMinOrderByAggregateInput
   }
 
-  export type PlaygroundHistoryScalarWhereWithAggregatesInput = {
-    AND?: PlaygroundHistoryScalarWhereWithAggregatesInput | PlaygroundHistoryScalarWhereWithAggregatesInput[]
-    OR?: PlaygroundHistoryScalarWhereWithAggregatesInput[]
-    NOT?: PlaygroundHistoryScalarWhereWithAggregatesInput | PlaygroundHistoryScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"PlaygroundHistory"> | string
-    prompt?: StringWithAggregatesFilter<"PlaygroundHistory"> | string
-    timestamp?: DateTimeWithAggregatesFilter<"PlaygroundHistory"> | Date | string
+  export type PromptScalarWhereWithAggregatesInput = {
+    AND?: PromptScalarWhereWithAggregatesInput | PromptScalarWhereWithAggregatesInput[]
+    OR?: PromptScalarWhereWithAggregatesInput[]
+    NOT?: PromptScalarWhereWithAggregatesInput | PromptScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Prompt"> | string
+    prompt?: StringWithAggregatesFilter<"Prompt"> | string
+    timestamp?: DateTimeWithAggregatesFilter<"Prompt"> | Date | string
   }
 
-  export type PlaygroundResponseWhereInput = {
-    AND?: PlaygroundResponseWhereInput | PlaygroundResponseWhereInput[]
-    OR?: PlaygroundResponseWhereInput[]
-    NOT?: PlaygroundResponseWhereInput | PlaygroundResponseWhereInput[]
-    id?: StringFilter<"PlaygroundResponse"> | string
-    modelId?: StringFilter<"PlaygroundResponse"> | string
-    text?: StringFilter<"PlaygroundResponse"> | string
-    historyId?: StringFilter<"PlaygroundResponse"> | string
-    promptTokens?: IntFilter<"PlaygroundResponse"> | number
-    completionTokens?: IntFilter<"PlaygroundResponse"> | number
-    totalTokens?: IntFilter<"PlaygroundResponse"> | number
-    responseTime?: FloatFilter<"PlaygroundResponse"> | number
-    estimatedCost?: FloatFilter<"PlaygroundResponse"> | number
-    createdAt?: DateTimeFilter<"PlaygroundResponse"> | Date | string
-    history?: XOR<PlaygroundHistoryScalarRelationFilter, PlaygroundHistoryWhereInput>
+  export type PromptResponseWhereInput = {
+    AND?: PromptResponseWhereInput | PromptResponseWhereInput[]
+    OR?: PromptResponseWhereInput[]
+    NOT?: PromptResponseWhereInput | PromptResponseWhereInput[]
+    id?: StringFilter<"PromptResponse"> | string
+    modelId?: StringFilter<"PromptResponse"> | string
+    text?: StringFilter<"PromptResponse"> | string
+    promptId?: StringFilter<"PromptResponse"> | string
+    promptTokens?: IntFilter<"PromptResponse"> | number
+    completionTokens?: IntFilter<"PromptResponse"> | number
+    totalTokens?: IntFilter<"PromptResponse"> | number
+    responseTime?: FloatFilter<"PromptResponse"> | number
+    estimatedCost?: FloatFilter<"PromptResponse"> | number
+    createdAt?: DateTimeFilter<"PromptResponse"> | Date | string
+    prompt?: XOR<PromptScalarRelationFilter, PromptWhereInput>
   }
 
-  export type PlaygroundResponseOrderByWithRelationInput = {
+  export type PromptResponseOrderByWithRelationInput = {
     id?: SortOrder
     modelId?: SortOrder
     text?: SortOrder
-    historyId?: SortOrder
+    promptId?: SortOrder
     promptTokens?: SortOrder
     completionTokens?: SortOrder
     totalTokens?: SortOrder
     responseTime?: SortOrder
     estimatedCost?: SortOrder
     createdAt?: SortOrder
-    history?: PlaygroundHistoryOrderByWithRelationInput
+    prompt?: PromptOrderByWithRelationInput
   }
 
-  export type PlaygroundResponseWhereUniqueInput = Prisma.AtLeast<{
+  export type PromptResponseWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: PlaygroundResponseWhereInput | PlaygroundResponseWhereInput[]
-    OR?: PlaygroundResponseWhereInput[]
-    NOT?: PlaygroundResponseWhereInput | PlaygroundResponseWhereInput[]
-    modelId?: StringFilter<"PlaygroundResponse"> | string
-    text?: StringFilter<"PlaygroundResponse"> | string
-    historyId?: StringFilter<"PlaygroundResponse"> | string
-    promptTokens?: IntFilter<"PlaygroundResponse"> | number
-    completionTokens?: IntFilter<"PlaygroundResponse"> | number
-    totalTokens?: IntFilter<"PlaygroundResponse"> | number
-    responseTime?: FloatFilter<"PlaygroundResponse"> | number
-    estimatedCost?: FloatFilter<"PlaygroundResponse"> | number
-    createdAt?: DateTimeFilter<"PlaygroundResponse"> | Date | string
-    history?: XOR<PlaygroundHistoryScalarRelationFilter, PlaygroundHistoryWhereInput>
+    AND?: PromptResponseWhereInput | PromptResponseWhereInput[]
+    OR?: PromptResponseWhereInput[]
+    NOT?: PromptResponseWhereInput | PromptResponseWhereInput[]
+    modelId?: StringFilter<"PromptResponse"> | string
+    text?: StringFilter<"PromptResponse"> | string
+    promptId?: StringFilter<"PromptResponse"> | string
+    promptTokens?: IntFilter<"PromptResponse"> | number
+    completionTokens?: IntFilter<"PromptResponse"> | number
+    totalTokens?: IntFilter<"PromptResponse"> | number
+    responseTime?: FloatFilter<"PromptResponse"> | number
+    estimatedCost?: FloatFilter<"PromptResponse"> | number
+    createdAt?: DateTimeFilter<"PromptResponse"> | Date | string
+    prompt?: XOR<PromptScalarRelationFilter, PromptWhereInput>
   }, "id">
 
-  export type PlaygroundResponseOrderByWithAggregationInput = {
+  export type PromptResponseOrderByWithAggregationInput = {
     id?: SortOrder
     modelId?: SortOrder
     text?: SortOrder
-    historyId?: SortOrder
+    promptId?: SortOrder
     promptTokens?: SortOrder
     completionTokens?: SortOrder
     totalTokens?: SortOrder
     responseTime?: SortOrder
     estimatedCost?: SortOrder
     createdAt?: SortOrder
-    _count?: PlaygroundResponseCountOrderByAggregateInput
-    _avg?: PlaygroundResponseAvgOrderByAggregateInput
-    _max?: PlaygroundResponseMaxOrderByAggregateInput
-    _min?: PlaygroundResponseMinOrderByAggregateInput
-    _sum?: PlaygroundResponseSumOrderByAggregateInput
+    _count?: PromptResponseCountOrderByAggregateInput
+    _avg?: PromptResponseAvgOrderByAggregateInput
+    _max?: PromptResponseMaxOrderByAggregateInput
+    _min?: PromptResponseMinOrderByAggregateInput
+    _sum?: PromptResponseSumOrderByAggregateInput
   }
 
-  export type PlaygroundResponseScalarWhereWithAggregatesInput = {
-    AND?: PlaygroundResponseScalarWhereWithAggregatesInput | PlaygroundResponseScalarWhereWithAggregatesInput[]
-    OR?: PlaygroundResponseScalarWhereWithAggregatesInput[]
-    NOT?: PlaygroundResponseScalarWhereWithAggregatesInput | PlaygroundResponseScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"PlaygroundResponse"> | string
-    modelId?: StringWithAggregatesFilter<"PlaygroundResponse"> | string
-    text?: StringWithAggregatesFilter<"PlaygroundResponse"> | string
-    historyId?: StringWithAggregatesFilter<"PlaygroundResponse"> | string
-    promptTokens?: IntWithAggregatesFilter<"PlaygroundResponse"> | number
-    completionTokens?: IntWithAggregatesFilter<"PlaygroundResponse"> | number
-    totalTokens?: IntWithAggregatesFilter<"PlaygroundResponse"> | number
-    responseTime?: FloatWithAggregatesFilter<"PlaygroundResponse"> | number
-    estimatedCost?: FloatWithAggregatesFilter<"PlaygroundResponse"> | number
-    createdAt?: DateTimeWithAggregatesFilter<"PlaygroundResponse"> | Date | string
+  export type PromptResponseScalarWhereWithAggregatesInput = {
+    AND?: PromptResponseScalarWhereWithAggregatesInput | PromptResponseScalarWhereWithAggregatesInput[]
+    OR?: PromptResponseScalarWhereWithAggregatesInput[]
+    NOT?: PromptResponseScalarWhereWithAggregatesInput | PromptResponseScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PromptResponse"> | string
+    modelId?: StringWithAggregatesFilter<"PromptResponse"> | string
+    text?: StringWithAggregatesFilter<"PromptResponse"> | string
+    promptId?: StringWithAggregatesFilter<"PromptResponse"> | string
+    promptTokens?: IntWithAggregatesFilter<"PromptResponse"> | number
+    completionTokens?: IntWithAggregatesFilter<"PromptResponse"> | number
+    totalTokens?: IntWithAggregatesFilter<"PromptResponse"> | number
+    responseTime?: FloatWithAggregatesFilter<"PromptResponse"> | number
+    estimatedCost?: FloatWithAggregatesFilter<"PromptResponse"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"PromptResponse"> | Date | string
   }
 
-  export type PlaygroundHistoryCreateInput = {
+  export type PromptCreateInput = {
     id?: string
     prompt: string
     timestamp?: Date | string
-    responses?: PlaygroundResponseCreateNestedManyWithoutHistoryInput
+    responses?: PromptResponseCreateNestedManyWithoutPromptInput
   }
 
-  export type PlaygroundHistoryUncheckedCreateInput = {
+  export type PromptUncheckedCreateInput = {
     id?: string
     prompt: string
     timestamp?: Date | string
-    responses?: PlaygroundResponseUncheckedCreateNestedManyWithoutHistoryInput
+    responses?: PromptResponseUncheckedCreateNestedManyWithoutPromptInput
   }
 
-  export type PlaygroundHistoryUpdateInput = {
+  export type PromptUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     prompt?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    responses?: PlaygroundResponseUpdateManyWithoutHistoryNestedInput
+    responses?: PromptResponseUpdateManyWithoutPromptNestedInput
   }
 
-  export type PlaygroundHistoryUncheckedUpdateInput = {
+  export type PromptUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     prompt?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    responses?: PlaygroundResponseUncheckedUpdateManyWithoutHistoryNestedInput
+    responses?: PromptResponseUncheckedUpdateManyWithoutPromptNestedInput
   }
 
-  export type PlaygroundHistoryCreateManyInput = {
+  export type PromptCreateManyInput = {
     id?: string
     prompt: string
     timestamp?: Date | string
   }
 
-  export type PlaygroundHistoryUpdateManyMutationInput = {
+  export type PromptUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     prompt?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PlaygroundHistoryUncheckedUpdateManyInput = {
+  export type PromptUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     prompt?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PlaygroundResponseCreateInput = {
+  export type PromptResponseCreateInput = {
     id?: string
     modelId: string
     text: string
@@ -3509,14 +3509,14 @@ export namespace Prisma {
     responseTime: number
     estimatedCost: number
     createdAt?: Date | string
-    history: PlaygroundHistoryCreateNestedOneWithoutResponsesInput
+    prompt: PromptCreateNestedOneWithoutResponsesInput
   }
 
-  export type PlaygroundResponseUncheckedCreateInput = {
+  export type PromptResponseUncheckedCreateInput = {
     id?: string
     modelId: string
     text: string
-    historyId: string
+    promptId: string
     promptTokens: number
     completionTokens: number
     totalTokens: number
@@ -3525,7 +3525,7 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type PlaygroundResponseUpdateInput = {
+  export type PromptResponseUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
@@ -3535,14 +3535,14 @@ export namespace Prisma {
     responseTime?: FloatFieldUpdateOperationsInput | number
     estimatedCost?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    history?: PlaygroundHistoryUpdateOneRequiredWithoutResponsesNestedInput
+    prompt?: PromptUpdateOneRequiredWithoutResponsesNestedInput
   }
 
-  export type PlaygroundResponseUncheckedUpdateInput = {
+  export type PromptResponseUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
-    historyId?: StringFieldUpdateOperationsInput | string
+    promptId?: StringFieldUpdateOperationsInput | string
     promptTokens?: IntFieldUpdateOperationsInput | number
     completionTokens?: IntFieldUpdateOperationsInput | number
     totalTokens?: IntFieldUpdateOperationsInput | number
@@ -3551,11 +3551,11 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PlaygroundResponseCreateManyInput = {
+  export type PromptResponseCreateManyInput = {
     id?: string
     modelId: string
     text: string
-    historyId: string
+    promptId: string
     promptTokens: number
     completionTokens: number
     totalTokens: number
@@ -3564,7 +3564,7 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type PlaygroundResponseUpdateManyMutationInput = {
+  export type PromptResponseUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
@@ -3576,11 +3576,11 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PlaygroundResponseUncheckedUpdateManyInput = {
+  export type PromptResponseUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
-    historyId?: StringFieldUpdateOperationsInput | string
+    promptId?: StringFieldUpdateOperationsInput | string
     promptTokens?: IntFieldUpdateOperationsInput | number
     completionTokens?: IntFieldUpdateOperationsInput | number
     totalTokens?: IntFieldUpdateOperationsInput | number
@@ -3615,29 +3615,29 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type PlaygroundResponseListRelationFilter = {
-    every?: PlaygroundResponseWhereInput
-    some?: PlaygroundResponseWhereInput
-    none?: PlaygroundResponseWhereInput
+  export type PromptResponseListRelationFilter = {
+    every?: PromptResponseWhereInput
+    some?: PromptResponseWhereInput
+    none?: PromptResponseWhereInput
   }
 
-  export type PlaygroundResponseOrderByRelationAggregateInput = {
+  export type PromptResponseOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type PlaygroundHistoryCountOrderByAggregateInput = {
+  export type PromptCountOrderByAggregateInput = {
     id?: SortOrder
     prompt?: SortOrder
     timestamp?: SortOrder
   }
 
-  export type PlaygroundHistoryMaxOrderByAggregateInput = {
+  export type PromptMaxOrderByAggregateInput = {
     id?: SortOrder
     prompt?: SortOrder
     timestamp?: SortOrder
   }
 
-  export type PlaygroundHistoryMinOrderByAggregateInput = {
+  export type PromptMinOrderByAggregateInput = {
     id?: SortOrder
     prompt?: SortOrder
     timestamp?: SortOrder
@@ -3697,16 +3697,16 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type PlaygroundHistoryScalarRelationFilter = {
-    is?: PlaygroundHistoryWhereInput
-    isNot?: PlaygroundHistoryWhereInput
+  export type PromptScalarRelationFilter = {
+    is?: PromptWhereInput
+    isNot?: PromptWhereInput
   }
 
-  export type PlaygroundResponseCountOrderByAggregateInput = {
+  export type PromptResponseCountOrderByAggregateInput = {
     id?: SortOrder
     modelId?: SortOrder
     text?: SortOrder
-    historyId?: SortOrder
+    promptId?: SortOrder
     promptTokens?: SortOrder
     completionTokens?: SortOrder
     totalTokens?: SortOrder
@@ -3715,7 +3715,7 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
-  export type PlaygroundResponseAvgOrderByAggregateInput = {
+  export type PromptResponseAvgOrderByAggregateInput = {
     promptTokens?: SortOrder
     completionTokens?: SortOrder
     totalTokens?: SortOrder
@@ -3723,11 +3723,11 @@ export namespace Prisma {
     estimatedCost?: SortOrder
   }
 
-  export type PlaygroundResponseMaxOrderByAggregateInput = {
+  export type PromptResponseMaxOrderByAggregateInput = {
     id?: SortOrder
     modelId?: SortOrder
     text?: SortOrder
-    historyId?: SortOrder
+    promptId?: SortOrder
     promptTokens?: SortOrder
     completionTokens?: SortOrder
     totalTokens?: SortOrder
@@ -3736,11 +3736,11 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
-  export type PlaygroundResponseMinOrderByAggregateInput = {
+  export type PromptResponseMinOrderByAggregateInput = {
     id?: SortOrder
     modelId?: SortOrder
     text?: SortOrder
-    historyId?: SortOrder
+    promptId?: SortOrder
     promptTokens?: SortOrder
     completionTokens?: SortOrder
     totalTokens?: SortOrder
@@ -3749,7 +3749,7 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
-  export type PlaygroundResponseSumOrderByAggregateInput = {
+  export type PromptResponseSumOrderByAggregateInput = {
     promptTokens?: SortOrder
     completionTokens?: SortOrder
     totalTokens?: SortOrder
@@ -3789,18 +3789,18 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type PlaygroundResponseCreateNestedManyWithoutHistoryInput = {
-    create?: XOR<PlaygroundResponseCreateWithoutHistoryInput, PlaygroundResponseUncheckedCreateWithoutHistoryInput> | PlaygroundResponseCreateWithoutHistoryInput[] | PlaygroundResponseUncheckedCreateWithoutHistoryInput[]
-    connectOrCreate?: PlaygroundResponseCreateOrConnectWithoutHistoryInput | PlaygroundResponseCreateOrConnectWithoutHistoryInput[]
-    createMany?: PlaygroundResponseCreateManyHistoryInputEnvelope
-    connect?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
+  export type PromptResponseCreateNestedManyWithoutPromptInput = {
+    create?: XOR<PromptResponseCreateWithoutPromptInput, PromptResponseUncheckedCreateWithoutPromptInput> | PromptResponseCreateWithoutPromptInput[] | PromptResponseUncheckedCreateWithoutPromptInput[]
+    connectOrCreate?: PromptResponseCreateOrConnectWithoutPromptInput | PromptResponseCreateOrConnectWithoutPromptInput[]
+    createMany?: PromptResponseCreateManyPromptInputEnvelope
+    connect?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
   }
 
-  export type PlaygroundResponseUncheckedCreateNestedManyWithoutHistoryInput = {
-    create?: XOR<PlaygroundResponseCreateWithoutHistoryInput, PlaygroundResponseUncheckedCreateWithoutHistoryInput> | PlaygroundResponseCreateWithoutHistoryInput[] | PlaygroundResponseUncheckedCreateWithoutHistoryInput[]
-    connectOrCreate?: PlaygroundResponseCreateOrConnectWithoutHistoryInput | PlaygroundResponseCreateOrConnectWithoutHistoryInput[]
-    createMany?: PlaygroundResponseCreateManyHistoryInputEnvelope
-    connect?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
+  export type PromptResponseUncheckedCreateNestedManyWithoutPromptInput = {
+    create?: XOR<PromptResponseCreateWithoutPromptInput, PromptResponseUncheckedCreateWithoutPromptInput> | PromptResponseCreateWithoutPromptInput[] | PromptResponseUncheckedCreateWithoutPromptInput[]
+    connectOrCreate?: PromptResponseCreateOrConnectWithoutPromptInput | PromptResponseCreateOrConnectWithoutPromptInput[]
+    createMany?: PromptResponseCreateManyPromptInputEnvelope
+    connect?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3811,38 +3811,38 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type PlaygroundResponseUpdateManyWithoutHistoryNestedInput = {
-    create?: XOR<PlaygroundResponseCreateWithoutHistoryInput, PlaygroundResponseUncheckedCreateWithoutHistoryInput> | PlaygroundResponseCreateWithoutHistoryInput[] | PlaygroundResponseUncheckedCreateWithoutHistoryInput[]
-    connectOrCreate?: PlaygroundResponseCreateOrConnectWithoutHistoryInput | PlaygroundResponseCreateOrConnectWithoutHistoryInput[]
-    upsert?: PlaygroundResponseUpsertWithWhereUniqueWithoutHistoryInput | PlaygroundResponseUpsertWithWhereUniqueWithoutHistoryInput[]
-    createMany?: PlaygroundResponseCreateManyHistoryInputEnvelope
-    set?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
-    disconnect?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
-    delete?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
-    connect?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
-    update?: PlaygroundResponseUpdateWithWhereUniqueWithoutHistoryInput | PlaygroundResponseUpdateWithWhereUniqueWithoutHistoryInput[]
-    updateMany?: PlaygroundResponseUpdateManyWithWhereWithoutHistoryInput | PlaygroundResponseUpdateManyWithWhereWithoutHistoryInput[]
-    deleteMany?: PlaygroundResponseScalarWhereInput | PlaygroundResponseScalarWhereInput[]
+  export type PromptResponseUpdateManyWithoutPromptNestedInput = {
+    create?: XOR<PromptResponseCreateWithoutPromptInput, PromptResponseUncheckedCreateWithoutPromptInput> | PromptResponseCreateWithoutPromptInput[] | PromptResponseUncheckedCreateWithoutPromptInput[]
+    connectOrCreate?: PromptResponseCreateOrConnectWithoutPromptInput | PromptResponseCreateOrConnectWithoutPromptInput[]
+    upsert?: PromptResponseUpsertWithWhereUniqueWithoutPromptInput | PromptResponseUpsertWithWhereUniqueWithoutPromptInput[]
+    createMany?: PromptResponseCreateManyPromptInputEnvelope
+    set?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
+    disconnect?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
+    delete?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
+    connect?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
+    update?: PromptResponseUpdateWithWhereUniqueWithoutPromptInput | PromptResponseUpdateWithWhereUniqueWithoutPromptInput[]
+    updateMany?: PromptResponseUpdateManyWithWhereWithoutPromptInput | PromptResponseUpdateManyWithWhereWithoutPromptInput[]
+    deleteMany?: PromptResponseScalarWhereInput | PromptResponseScalarWhereInput[]
   }
 
-  export type PlaygroundResponseUncheckedUpdateManyWithoutHistoryNestedInput = {
-    create?: XOR<PlaygroundResponseCreateWithoutHistoryInput, PlaygroundResponseUncheckedCreateWithoutHistoryInput> | PlaygroundResponseCreateWithoutHistoryInput[] | PlaygroundResponseUncheckedCreateWithoutHistoryInput[]
-    connectOrCreate?: PlaygroundResponseCreateOrConnectWithoutHistoryInput | PlaygroundResponseCreateOrConnectWithoutHistoryInput[]
-    upsert?: PlaygroundResponseUpsertWithWhereUniqueWithoutHistoryInput | PlaygroundResponseUpsertWithWhereUniqueWithoutHistoryInput[]
-    createMany?: PlaygroundResponseCreateManyHistoryInputEnvelope
-    set?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
-    disconnect?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
-    delete?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
-    connect?: PlaygroundResponseWhereUniqueInput | PlaygroundResponseWhereUniqueInput[]
-    update?: PlaygroundResponseUpdateWithWhereUniqueWithoutHistoryInput | PlaygroundResponseUpdateWithWhereUniqueWithoutHistoryInput[]
-    updateMany?: PlaygroundResponseUpdateManyWithWhereWithoutHistoryInput | PlaygroundResponseUpdateManyWithWhereWithoutHistoryInput[]
-    deleteMany?: PlaygroundResponseScalarWhereInput | PlaygroundResponseScalarWhereInput[]
+  export type PromptResponseUncheckedUpdateManyWithoutPromptNestedInput = {
+    create?: XOR<PromptResponseCreateWithoutPromptInput, PromptResponseUncheckedCreateWithoutPromptInput> | PromptResponseCreateWithoutPromptInput[] | PromptResponseUncheckedCreateWithoutPromptInput[]
+    connectOrCreate?: PromptResponseCreateOrConnectWithoutPromptInput | PromptResponseCreateOrConnectWithoutPromptInput[]
+    upsert?: PromptResponseUpsertWithWhereUniqueWithoutPromptInput | PromptResponseUpsertWithWhereUniqueWithoutPromptInput[]
+    createMany?: PromptResponseCreateManyPromptInputEnvelope
+    set?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
+    disconnect?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
+    delete?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
+    connect?: PromptResponseWhereUniqueInput | PromptResponseWhereUniqueInput[]
+    update?: PromptResponseUpdateWithWhereUniqueWithoutPromptInput | PromptResponseUpdateWithWhereUniqueWithoutPromptInput[]
+    updateMany?: PromptResponseUpdateManyWithWhereWithoutPromptInput | PromptResponseUpdateManyWithWhereWithoutPromptInput[]
+    deleteMany?: PromptResponseScalarWhereInput | PromptResponseScalarWhereInput[]
   }
 
-  export type PlaygroundHistoryCreateNestedOneWithoutResponsesInput = {
-    create?: XOR<PlaygroundHistoryCreateWithoutResponsesInput, PlaygroundHistoryUncheckedCreateWithoutResponsesInput>
-    connectOrCreate?: PlaygroundHistoryCreateOrConnectWithoutResponsesInput
-    connect?: PlaygroundHistoryWhereUniqueInput
+  export type PromptCreateNestedOneWithoutResponsesInput = {
+    create?: XOR<PromptCreateWithoutResponsesInput, PromptUncheckedCreateWithoutResponsesInput>
+    connectOrCreate?: PromptCreateOrConnectWithoutResponsesInput
+    connect?: PromptWhereUniqueInput
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -3861,12 +3861,12 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type PlaygroundHistoryUpdateOneRequiredWithoutResponsesNestedInput = {
-    create?: XOR<PlaygroundHistoryCreateWithoutResponsesInput, PlaygroundHistoryUncheckedCreateWithoutResponsesInput>
-    connectOrCreate?: PlaygroundHistoryCreateOrConnectWithoutResponsesInput
-    upsert?: PlaygroundHistoryUpsertWithoutResponsesInput
-    connect?: PlaygroundHistoryWhereUniqueInput
-    update?: XOR<XOR<PlaygroundHistoryUpdateToOneWithWhereWithoutResponsesInput, PlaygroundHistoryUpdateWithoutResponsesInput>, PlaygroundHistoryUncheckedUpdateWithoutResponsesInput>
+  export type PromptUpdateOneRequiredWithoutResponsesNestedInput = {
+    create?: XOR<PromptCreateWithoutResponsesInput, PromptUncheckedCreateWithoutResponsesInput>
+    connectOrCreate?: PromptCreateOrConnectWithoutResponsesInput
+    upsert?: PromptUpsertWithoutResponsesInput
+    connect?: PromptWhereUniqueInput
+    update?: XOR<XOR<PromptUpdateToOneWithWhereWithoutResponsesInput, PromptUpdateWithoutResponsesInput>, PromptUncheckedUpdateWithoutResponsesInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3979,7 +3979,7 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type PlaygroundResponseCreateWithoutHistoryInput = {
+  export type PromptResponseCreateWithoutPromptInput = {
     id?: string
     modelId: string
     text: string
@@ -3991,7 +3991,7 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type PlaygroundResponseUncheckedCreateWithoutHistoryInput = {
+  export type PromptResponseUncheckedCreateWithoutPromptInput = {
     id?: string
     modelId: string
     text: string
@@ -4003,89 +4003,89 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type PlaygroundResponseCreateOrConnectWithoutHistoryInput = {
-    where: PlaygroundResponseWhereUniqueInput
-    create: XOR<PlaygroundResponseCreateWithoutHistoryInput, PlaygroundResponseUncheckedCreateWithoutHistoryInput>
+  export type PromptResponseCreateOrConnectWithoutPromptInput = {
+    where: PromptResponseWhereUniqueInput
+    create: XOR<PromptResponseCreateWithoutPromptInput, PromptResponseUncheckedCreateWithoutPromptInput>
   }
 
-  export type PlaygroundResponseCreateManyHistoryInputEnvelope = {
-    data: PlaygroundResponseCreateManyHistoryInput | PlaygroundResponseCreateManyHistoryInput[]
+  export type PromptResponseCreateManyPromptInputEnvelope = {
+    data: PromptResponseCreateManyPromptInput | PromptResponseCreateManyPromptInput[]
     skipDuplicates?: boolean
   }
 
-  export type PlaygroundResponseUpsertWithWhereUniqueWithoutHistoryInput = {
-    where: PlaygroundResponseWhereUniqueInput
-    update: XOR<PlaygroundResponseUpdateWithoutHistoryInput, PlaygroundResponseUncheckedUpdateWithoutHistoryInput>
-    create: XOR<PlaygroundResponseCreateWithoutHistoryInput, PlaygroundResponseUncheckedCreateWithoutHistoryInput>
+  export type PromptResponseUpsertWithWhereUniqueWithoutPromptInput = {
+    where: PromptResponseWhereUniqueInput
+    update: XOR<PromptResponseUpdateWithoutPromptInput, PromptResponseUncheckedUpdateWithoutPromptInput>
+    create: XOR<PromptResponseCreateWithoutPromptInput, PromptResponseUncheckedCreateWithoutPromptInput>
   }
 
-  export type PlaygroundResponseUpdateWithWhereUniqueWithoutHistoryInput = {
-    where: PlaygroundResponseWhereUniqueInput
-    data: XOR<PlaygroundResponseUpdateWithoutHistoryInput, PlaygroundResponseUncheckedUpdateWithoutHistoryInput>
+  export type PromptResponseUpdateWithWhereUniqueWithoutPromptInput = {
+    where: PromptResponseWhereUniqueInput
+    data: XOR<PromptResponseUpdateWithoutPromptInput, PromptResponseUncheckedUpdateWithoutPromptInput>
   }
 
-  export type PlaygroundResponseUpdateManyWithWhereWithoutHistoryInput = {
-    where: PlaygroundResponseScalarWhereInput
-    data: XOR<PlaygroundResponseUpdateManyMutationInput, PlaygroundResponseUncheckedUpdateManyWithoutHistoryInput>
+  export type PromptResponseUpdateManyWithWhereWithoutPromptInput = {
+    where: PromptResponseScalarWhereInput
+    data: XOR<PromptResponseUpdateManyMutationInput, PromptResponseUncheckedUpdateManyWithoutPromptInput>
   }
 
-  export type PlaygroundResponseScalarWhereInput = {
-    AND?: PlaygroundResponseScalarWhereInput | PlaygroundResponseScalarWhereInput[]
-    OR?: PlaygroundResponseScalarWhereInput[]
-    NOT?: PlaygroundResponseScalarWhereInput | PlaygroundResponseScalarWhereInput[]
-    id?: StringFilter<"PlaygroundResponse"> | string
-    modelId?: StringFilter<"PlaygroundResponse"> | string
-    text?: StringFilter<"PlaygroundResponse"> | string
-    historyId?: StringFilter<"PlaygroundResponse"> | string
-    promptTokens?: IntFilter<"PlaygroundResponse"> | number
-    completionTokens?: IntFilter<"PlaygroundResponse"> | number
-    totalTokens?: IntFilter<"PlaygroundResponse"> | number
-    responseTime?: FloatFilter<"PlaygroundResponse"> | number
-    estimatedCost?: FloatFilter<"PlaygroundResponse"> | number
-    createdAt?: DateTimeFilter<"PlaygroundResponse"> | Date | string
+  export type PromptResponseScalarWhereInput = {
+    AND?: PromptResponseScalarWhereInput | PromptResponseScalarWhereInput[]
+    OR?: PromptResponseScalarWhereInput[]
+    NOT?: PromptResponseScalarWhereInput | PromptResponseScalarWhereInput[]
+    id?: StringFilter<"PromptResponse"> | string
+    modelId?: StringFilter<"PromptResponse"> | string
+    text?: StringFilter<"PromptResponse"> | string
+    promptId?: StringFilter<"PromptResponse"> | string
+    promptTokens?: IntFilter<"PromptResponse"> | number
+    completionTokens?: IntFilter<"PromptResponse"> | number
+    totalTokens?: IntFilter<"PromptResponse"> | number
+    responseTime?: FloatFilter<"PromptResponse"> | number
+    estimatedCost?: FloatFilter<"PromptResponse"> | number
+    createdAt?: DateTimeFilter<"PromptResponse"> | Date | string
   }
 
-  export type PlaygroundHistoryCreateWithoutResponsesInput = {
+  export type PromptCreateWithoutResponsesInput = {
     id?: string
     prompt: string
     timestamp?: Date | string
   }
 
-  export type PlaygroundHistoryUncheckedCreateWithoutResponsesInput = {
+  export type PromptUncheckedCreateWithoutResponsesInput = {
     id?: string
     prompt: string
     timestamp?: Date | string
   }
 
-  export type PlaygroundHistoryCreateOrConnectWithoutResponsesInput = {
-    where: PlaygroundHistoryWhereUniqueInput
-    create: XOR<PlaygroundHistoryCreateWithoutResponsesInput, PlaygroundHistoryUncheckedCreateWithoutResponsesInput>
+  export type PromptCreateOrConnectWithoutResponsesInput = {
+    where: PromptWhereUniqueInput
+    create: XOR<PromptCreateWithoutResponsesInput, PromptUncheckedCreateWithoutResponsesInput>
   }
 
-  export type PlaygroundHistoryUpsertWithoutResponsesInput = {
-    update: XOR<PlaygroundHistoryUpdateWithoutResponsesInput, PlaygroundHistoryUncheckedUpdateWithoutResponsesInput>
-    create: XOR<PlaygroundHistoryCreateWithoutResponsesInput, PlaygroundHistoryUncheckedCreateWithoutResponsesInput>
-    where?: PlaygroundHistoryWhereInput
+  export type PromptUpsertWithoutResponsesInput = {
+    update: XOR<PromptUpdateWithoutResponsesInput, PromptUncheckedUpdateWithoutResponsesInput>
+    create: XOR<PromptCreateWithoutResponsesInput, PromptUncheckedCreateWithoutResponsesInput>
+    where?: PromptWhereInput
   }
 
-  export type PlaygroundHistoryUpdateToOneWithWhereWithoutResponsesInput = {
-    where?: PlaygroundHistoryWhereInput
-    data: XOR<PlaygroundHistoryUpdateWithoutResponsesInput, PlaygroundHistoryUncheckedUpdateWithoutResponsesInput>
+  export type PromptUpdateToOneWithWhereWithoutResponsesInput = {
+    where?: PromptWhereInput
+    data: XOR<PromptUpdateWithoutResponsesInput, PromptUncheckedUpdateWithoutResponsesInput>
   }
 
-  export type PlaygroundHistoryUpdateWithoutResponsesInput = {
+  export type PromptUpdateWithoutResponsesInput = {
     id?: StringFieldUpdateOperationsInput | string
     prompt?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PlaygroundHistoryUncheckedUpdateWithoutResponsesInput = {
+  export type PromptUncheckedUpdateWithoutResponsesInput = {
     id?: StringFieldUpdateOperationsInput | string
     prompt?: StringFieldUpdateOperationsInput | string
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PlaygroundResponseCreateManyHistoryInput = {
+  export type PromptResponseCreateManyPromptInput = {
     id?: string
     modelId: string
     text: string
@@ -4097,7 +4097,7 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type PlaygroundResponseUpdateWithoutHistoryInput = {
+  export type PromptResponseUpdateWithoutPromptInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
@@ -4109,7 +4109,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PlaygroundResponseUncheckedUpdateWithoutHistoryInput = {
+  export type PromptResponseUncheckedUpdateWithoutPromptInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
@@ -4121,7 +4121,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PlaygroundResponseUncheckedUpdateManyWithoutHistoryInput = {
+  export type PromptResponseUncheckedUpdateManyWithoutPromptInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string

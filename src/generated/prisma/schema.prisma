@@ -15,19 +15,19 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model PlaygroundHistory {
-  id        String               @id @default(cuid())
+model Prompt {
+  id        String           @id @default(cuid())
   prompt    String
-  timestamp DateTime             @default(now())
-  responses PlaygroundResponse[]
+  timestamp DateTime         @default(now())
+  responses PromptResponse[]
 }
 
-model PlaygroundResponse {
-  id        String            @id @default(cuid())
-  modelId   String
-  text      String            @db.Text
-  history   PlaygroundHistory @relation(fields: [historyId], references: [id], onDelete: Cascade)
-  historyId String
+model PromptResponse {
+  id       String @id @default(cuid())
+  modelId  String
+  text     String @db.Text
+  prompt   Prompt @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  promptId String
 
   // Metrics
   promptTokens     Int

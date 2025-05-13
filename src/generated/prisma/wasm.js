@@ -120,17 +120,17 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.PlaygroundHistoryScalarFieldEnum = {
+exports.Prisma.PromptScalarFieldEnum = {
   id: 'id',
   prompt: 'prompt',
   timestamp: 'timestamp'
 };
 
-exports.Prisma.PlaygroundResponseScalarFieldEnum = {
+exports.Prisma.PromptResponseScalarFieldEnum = {
   id: 'id',
   modelId: 'modelId',
   text: 'text',
-  historyId: 'historyId',
+  promptId: 'promptId',
   promptTokens: 'promptTokens',
   completionTokens: 'completionTokens',
   totalTokens: 'totalTokens',
@@ -151,8 +151,8 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  PlaygroundHistory: 'PlaygroundHistory',
-  PlaygroundResponse: 'PlaygroundResponse'
+  Prompt: 'Prompt',
+  PromptResponse: 'PromptResponse'
 };
 
 /**
