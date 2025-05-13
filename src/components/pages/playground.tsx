@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Button } from "../atoms/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "../atoms/drawer";
 import { History, Send, Plus } from "lucide-react";
@@ -13,214 +13,36 @@ import {
 import { MessageEditor } from "../molecules/message-editor";
 import { ParametersPopover } from "../molecules/parameters-popover";
 import { ModelResponsePanel } from "../organisms/model-response-panel";
-import { generateId } from "@/utils/uuid";
-import {
-  models,
-  Message,
-  ModelResponse,
-  ModelParameters,
-  HistoryItem,
-  ApiResponse,
-} from "../../types/ui.types";
+import { models } from "../../types/ui.types";
+import { usePlaygroundStore } from "@/store/playground-store";
+import { useSession } from "next-auth/react";
 
 export default function Playground() {
-  const [messages, setMessages] = useState<Message[]>([
-    { id: "1", role: "system", content: "You are a helpful assistant." },
-    { id: "2", role: "user", content: "" },
-  ]);
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [responses, setResponses] = useState<Record<string, ModelResponse>>({});
-  const [history, setHistory] = useState<HistoryItem[]>([]);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const [parameters, setParameters] = useState<ModelParameters>({
-    temperature: 0.7,
-    maxTokens: null,
-    topP: 1.0,
-    frequencyPenalty: 0.0,
-    presencePenalty: 0.0,
-  });
+  const { data: session } = useSession();
+  // Get state and actions from Zustand store
+  const {
+    messages,
+    isLoading,
+    responses,
+    history,
+    isDrawerOpen,
+    parameters,
+    addMessage,
+    updateMessage,
+    changeMessageRole,
+    deleteMessage,
+    setParameters,
+    setIsDrawerOpen,
+    handleSendPrompt,
+    fetchHistory,
+    loadFromHistory,
+    clearHistory,
+  } = usePlaygroundStore();
 
   // Fetch history on component mount
   useEffect(() => {
     fetchHistory();
-  }, []);
-
-  // Fetch history from API
-  const fetchHistory = async () => {
-    try {
-      const response = await fetch("/api/history");
-      if (!response.ok) throw new Error("Failed to fetch history");
-
-      const data = await response.json();
-      setHistory(data);
-    } catch (error) {
-      console.error("Error fetching history:", error);
-    }
-  };
-
-  // Add a new message
-  const addMessage = (role: "system" | "user" | "assistant" = "user") => {
-    const newMessage: Message = {
-      id: generateId(),
-      role,
-      content: "",
-    };
-    setMessages([...messages, newMessage]);
-  };
-
-  // Update a message
-  const updateMessage = (id: string, content: string) => {
-    setMessages(
-      messages.map((msg) => (msg.id === id ? { ...msg, content } : msg))
-    );
-  };
-
-  // Change message role
-  const changeMessageRole = (
-    id: string,
-    role: "system" | "user" | "assistant"
-  ) => {
-    setMessages(
-      messages.map((msg) => (msg.id === id ? { ...msg, role } : msg))
-    );
-  };
-
-  // Delete a message
-  const deleteMessage = (id: string) => {
-    setMessages(messages.filter((msg) => msg.id !== id));
-  };
-
-  // Send messages to the API
-  const handleSendPrompt = async () => {
-    if (messages.length === 0) return;
-
-    // Reset responses and set loading state
-    setResponses({});
-
-    // Initialize loading state for all models
-    const initialResponses: Record<string, ModelResponse> = {};
-    models.forEach((model) => {
-      initialResponses[model.id] = {
-        loading: true,
-        text: "",
-        metrics: null,
-      };
-    });
-    setResponses(initialResponses);
-    setIsLoading(true);
-
-    try {
-      // Post to the generate API
-      const response = await fetch("/api/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          messages: messages,
-          parameters: parameters,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to generate responses");
-      }
-
-      // Parse the JSON response
-      const data: ApiResponse = await response.json();
-
-      // Update responses based on API data
-      const newResponses: Record<string, ModelResponse> = {};
-
-      data.models.forEach((modelData) => {
-        newResponses[modelData.id] = {
-          loading: false,
-          text: modelData.error || modelData.response || "No response received",
-          metrics: modelData.metrics,
-        };
-      });
-
-      setResponses(newResponses);
-      setIsLoading(false);
-
-      // Refresh history to include the new entry
-      fetchHistory();
-    } catch (error) {
-      console.error("Error sending prompt:", error);
-      setIsLoading(false);
-
-      // Update all models with the error
-      const errorResponses: Record<string, ModelResponse> = {};
-      models.forEach((model) => {
-        errorResponses[model.id] = {
-          loading: false,
-          text: `Error: ${
-            error instanceof Error ? error.message : "Unknown error"
-          }`,
-          metrics: null,
-        };
-      });
-      setResponses(errorResponses);
-    }
-  };
-
-  // Load a history item into the playground
-  const loadFromHistory = (historyItem: HistoryItem) => {
-    if (historyItem.messages && historyItem.messages.length > 0) {
-      // Convert DB messages to our Message format
-      const loadedMessages = historyItem.messages.map((msg) => ({
-        id: generateId(),
-        role: msg.role as "system" | "user" | "assistant",
-        content: msg.content,
-      }));
-      setMessages(loadedMessages);
-    } else {
-      // Fallback for older history items
-      setMessages([
-        { id: generateId(), role: "user", content: historyItem.prompt },
-      ]);
-    }
-
-    // Load parameters if available
-    if (historyItem.parameters) {
-      setParameters(historyItem.parameters);
-    }
-
-    const historyResponses: Record<string, ModelResponse> = {};
-    historyItem.responses.forEach((response) => {
-      historyResponses[response.modelId] = {
-        loading: false,
-        text: response.text,
-        metrics: response.metrics,
-      };
-    });
-
-    setResponses(historyResponses);
-    setIsDrawerOpen(false);
-  };
-
-  // Clear all history
-  const clearHistory = async () => {
-    try {
-      const response = await fetch("/api/history", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ clearAll: true }),
-      });
-
-      if (!response.ok) throw new Error("Failed to clear history");
-
-      // Refresh history
-      setHistory([]);
-      setIsDrawerOpen(false);
-    } catch (error) {
-      console.error("Error clearing history:", error);
-    }
-  };
+  }, [session?.user?.id, fetchHistory]);
 
   return (
     <ResizablePanelGroup
