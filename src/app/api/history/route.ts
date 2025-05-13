@@ -1,18 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/db";
-import { Prompt, PromptResponse } from "@/generated/prisma";
-
-// Properly type our result including messages
-type PromptWithRelations = Prompt & {
-  responses: PromptResponse[];
-  messages: {
-    id: string;
-    role: string;
-    content: string;
-    order: number;
-    promptId: string;
-  }[];
-};
+import {
+  HistoryItem,
+  Metrics,
+  PromptMessage,
+  ModelParameters,
+} from "@/types/ui.types";
+import { Prompt, PromptInputMessage, PromptResponse } from "@/generated/prisma";
 
 export async function GET() {
   try {
@@ -32,42 +26,51 @@ export async function GET() {
     });
 
     // Format the data for the frontend
-    const formattedHistory = historyItems.map((item: any) => ({
-      id: item.id,
-      prompt: item.prompt,
-      timestamp: item.timestamp,
-      // Pass messages
-      messages: item.messages.map((message: any) => ({
-        role: message.role,
-        content: message.content,
-        order: message.order,
-      })),
-      // Pass parameters if they exist
-      parameters:
-        item.temperature !== null ||
-        item.maxTokens !== null ||
-        item.topP !== null
-          ? {
-              temperature: item.temperature ?? 0.7,
-              maxTokens: item.maxTokens,
-              topP: item.topP ?? 1.0,
-              frequencyPenalty: item.frequencyPenalty ?? 0.0,
-              presencePenalty: item.presencePenalty ?? 0.0,
-            }
-          : undefined,
-      // Pass responses
-      responses: item.responses.map((response: any) => ({
-        modelId: response.modelId,
-        text: response.text,
-        metrics: {
-          promptTokens: response.promptTokens,
-          completionTokens: response.completionTokens,
-          totalTokens: response.totalTokens,
-          responseTime: response.responseTime,
-          estimatedCost: response.estimatedCost,
-        },
-      })),
-    }));
+    const formattedHistory = historyItems.map(
+      (
+        item: Prompt & {
+          messages: PromptInputMessage[];
+          responses: PromptResponse[];
+        }
+      ) => ({
+        id: item.id,
+        prompt: item.prompt,
+        timestamp: item.timestamp.toISOString(),
+        // Pass messages
+        messages: item.messages.map(
+          (message: PromptInputMessage): PromptMessage => ({
+            role: message.role,
+            content: message.content,
+            order: message.order,
+          })
+        ),
+        // Pass parameters if they exist
+        parameters:
+          item.temperature !== null ||
+          item.maxTokens !== null ||
+          item.topP !== null
+            ? ({
+                temperature: item.temperature ?? 0.7,
+                maxTokens: item.maxTokens,
+                topP: item.topP ?? 1.0,
+                frequencyPenalty: item.frequencyPenalty ?? 0.0,
+                presencePenalty: item.presencePenalty ?? 0.0,
+              } as ModelParameters)
+            : undefined,
+        // Pass responses
+        responses: item.responses.map((response: PromptResponse) => ({
+          modelId: response.modelId,
+          text: response.text ?? "",
+          metrics: {
+            promptTokens: response.promptTokens,
+            completionTokens: response.completionTokens,
+            totalTokens: response.totalTokens,
+            responseTime: response.responseTime,
+            estimatedCost: response.estimatedCost,
+          } as Metrics,
+        })),
+      })
+    ) as HistoryItem[];
 
     return NextResponse.json(formattedHistory);
   } catch (error) {

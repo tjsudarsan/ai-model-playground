@@ -43,9 +43,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Extract prompt text for backward compatibility and storage
-    // We'll use the content of the first user message, or the first message if no user messages exist
-    const userMessage = messages.find((msg) => msg.role === "user");
-    const promptText = userMessage ? userMessage.content : messages[0].content;
+    const lastMessage = [...messages].reverse()[0];
+    const promptText = lastMessage.content;
 
     // Create a new history record
     const historyRecord = await prisma.prompt.create({

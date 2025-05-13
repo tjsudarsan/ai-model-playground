@@ -1,5 +1,5 @@
 import { ChatXAI } from "@langchain/xai";
-import { ModelProviderConfig } from "./types";
+import { ModelProviderConfig } from "../../types/model.types";
 
 export const xaiModelProvider: ModelProviderConfig = {
   id: "xai",

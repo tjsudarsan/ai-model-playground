@@ -42,10 +42,10 @@ model PromptInputMessage {
 }
 
 model PromptResponse {
-  id       String @id @default(cuid())
+  id       String  @id @default(cuid())
   modelId  String
-  text     String @db.Text
-  prompt   Prompt @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  text     String? @db.Text
+  prompt   Prompt  @relation(fields: [promptId], references: [id], onDelete: Cascade)
   promptId String
 
   // Metrics

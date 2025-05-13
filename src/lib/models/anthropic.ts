@@ -1,5 +1,5 @@
 import { ChatAnthropic } from "@langchain/anthropic";
-import { ModelProviderConfig } from "./types";
+import { ModelProviderConfig } from "../../types/model.types";
 
 export const anthropicModelProvider: ModelProviderConfig = {
   id: "claude",

@@ -1,5 +1,5 @@
 import { ChatOpenAI } from "@langchain/openai";
-import { ModelProviderConfig } from "./types";
+import { ModelProviderConfig } from "../../types/model.types";
 
 export const openaiModelProvider: ModelProviderConfig = {
   id: "gpt4o",

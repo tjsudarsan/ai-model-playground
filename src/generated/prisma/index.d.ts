@@ -3583,7 +3583,7 @@ export namespace Prisma {
   export type PromptResponseGroupByOutputType = {
     id: string
     modelId: string
-    text: string
+    text: string | null
     promptId: string
     promptTokens: number
     completionTokens: number
@@ -3686,7 +3686,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       modelId: string
-      text: string
+      text: string | null
       promptId: string
       promptTokens: number
       completionTokens: number
@@ -4823,7 +4823,7 @@ export namespace Prisma {
     NOT?: PromptResponseWhereInput | PromptResponseWhereInput[]
     id?: StringFilter<"PromptResponse"> | string
     modelId?: StringFilter<"PromptResponse"> | string
-    text?: StringFilter<"PromptResponse"> | string
+    text?: StringNullableFilter<"PromptResponse"> | string | null
     promptId?: StringFilter<"PromptResponse"> | string
     promptTokens?: IntFilter<"PromptResponse"> | number
     completionTokens?: IntFilter<"PromptResponse"> | number
@@ -4837,7 +4837,7 @@ export namespace Prisma {
   export type PromptResponseOrderByWithRelationInput = {
     id?: SortOrder
     modelId?: SortOrder
-    text?: SortOrder
+    text?: SortOrderInput | SortOrder
     promptId?: SortOrder
     promptTokens?: SortOrder
     completionTokens?: SortOrder
@@ -4854,7 +4854,7 @@ export namespace Prisma {
     OR?: PromptResponseWhereInput[]
     NOT?: PromptResponseWhereInput | PromptResponseWhereInput[]
     modelId?: StringFilter<"PromptResponse"> | string
-    text?: StringFilter<"PromptResponse"> | string
+    text?: StringNullableFilter<"PromptResponse"> | string | null
     promptId?: StringFilter<"PromptResponse"> | string
     promptTokens?: IntFilter<"PromptResponse"> | number
     completionTokens?: IntFilter<"PromptResponse"> | number
@@ -4868,7 +4868,7 @@ export namespace Prisma {
   export type PromptResponseOrderByWithAggregationInput = {
     id?: SortOrder
     modelId?: SortOrder
-    text?: SortOrder
+    text?: SortOrderInput | SortOrder
     promptId?: SortOrder
     promptTokens?: SortOrder
     completionTokens?: SortOrder
@@ -4889,7 +4889,7 @@ export namespace Prisma {
     NOT?: PromptResponseScalarWhereWithAggregatesInput | PromptResponseScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"PromptResponse"> | string
     modelId?: StringWithAggregatesFilter<"PromptResponse"> | string
-    text?: StringWithAggregatesFilter<"PromptResponse"> | string
+    text?: StringNullableWithAggregatesFilter<"PromptResponse"> | string | null
     promptId?: StringWithAggregatesFilter<"PromptResponse"> | string
     promptTokens?: IntWithAggregatesFilter<"PromptResponse"> | number
     completionTokens?: IntWithAggregatesFilter<"PromptResponse"> | number
@@ -5042,7 +5042,7 @@ export namespace Prisma {
   export type PromptResponseCreateInput = {
     id?: string
     modelId: string
-    text: string
+    text?: string | null
     promptTokens: number
     completionTokens: number
     totalTokens: number
@@ -5055,7 +5055,7 @@ export namespace Prisma {
   export type PromptResponseUncheckedCreateInput = {
     id?: string
     modelId: string
-    text: string
+    text?: string | null
     promptId: string
     promptTokens: number
     completionTokens: number
@@ -5068,7 +5068,7 @@ export namespace Prisma {
   export type PromptResponseUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
+    text?: NullableStringFieldUpdateOperationsInput | string | null
     promptTokens?: IntFieldUpdateOperationsInput | number
     completionTokens?: IntFieldUpdateOperationsInput | number
     totalTokens?: IntFieldUpdateOperationsInput | number
@@ -5081,7 +5081,7 @@ export namespace Prisma {
   export type PromptResponseUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
+    text?: NullableStringFieldUpdateOperationsInput | string | null
     promptId?: StringFieldUpdateOperationsInput | string
     promptTokens?: IntFieldUpdateOperationsInput | number
     completionTokens?: IntFieldUpdateOperationsInput | number
@@ -5094,7 +5094,7 @@ export namespace Prisma {
   export type PromptResponseCreateManyInput = {
     id?: string
     modelId: string
-    text: string
+    text?: string | null
     promptId: string
     promptTokens: number
     completionTokens: number
@@ -5107,7 +5107,7 @@ export namespace Prisma {
   export type PromptResponseUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
+    text?: NullableStringFieldUpdateOperationsInput | string | null
     promptTokens?: IntFieldUpdateOperationsInput | number
     completionTokens?: IntFieldUpdateOperationsInput | number
     totalTokens?: IntFieldUpdateOperationsInput | number
@@ -5119,7 +5119,7 @@ export namespace Prisma {
   export type PromptResponseUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
+    text?: NullableStringFieldUpdateOperationsInput | string | null
     promptId?: StringFieldUpdateOperationsInput | string
     promptTokens?: IntFieldUpdateOperationsInput | number
     completionTokens?: IntFieldUpdateOperationsInput | number
@@ -5379,6 +5379,21 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type FloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -5443,6 +5458,24 @@ export namespace Prisma {
     totalTokens?: SortOrder
     responseTime?: SortOrder
     estimatedCost?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -5595,6 +5628,10 @@ export namespace Prisma {
     create?: XOR<PromptCreateWithoutResponsesInput, PromptUncheckedCreateWithoutResponsesInput>
     connectOrCreate?: PromptCreateOrConnectWithoutResponsesInput
     connect?: PromptWhereUniqueInput
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -5761,6 +5798,37 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -5804,7 +5872,7 @@ export namespace Prisma {
   export type PromptResponseCreateWithoutPromptInput = {
     id?: string
     modelId: string
-    text: string
+    text?: string | null
     promptTokens: number
     completionTokens: number
     totalTokens: number
@@ -5816,7 +5884,7 @@ export namespace Prisma {
   export type PromptResponseUncheckedCreateWithoutPromptInput = {
     id?: string
     modelId: string
-    text: string
+    text?: string | null
     promptTokens: number
     completionTokens: number
     totalTokens: number
@@ -5884,7 +5952,7 @@ export namespace Prisma {
     NOT?: PromptResponseScalarWhereInput | PromptResponseScalarWhereInput[]
     id?: StringFilter<"PromptResponse"> | string
     modelId?: StringFilter<"PromptResponse"> | string
-    text?: StringFilter<"PromptResponse"> | string
+    text?: StringNullableFilter<"PromptResponse"> | string | null
     promptId?: StringFilter<"PromptResponse"> | string
     promptTokens?: IntFilter<"PromptResponse"> | number
     completionTokens?: IntFilter<"PromptResponse"> | number
@@ -6032,7 +6100,7 @@ export namespace Prisma {
   export type PromptResponseCreateManyPromptInput = {
     id?: string
     modelId: string
-    text: string
+    text?: string | null
     promptTokens: number
     completionTokens: number
     totalTokens: number
@@ -6065,7 +6133,7 @@ export namespace Prisma {
   export type PromptResponseUpdateWithoutPromptInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
+    text?: NullableStringFieldUpdateOperationsInput | string | null
     promptTokens?: IntFieldUpdateOperationsInput | number
     completionTokens?: IntFieldUpdateOperationsInput | number
     totalTokens?: IntFieldUpdateOperationsInput | number
@@ -6077,7 +6145,7 @@ export namespace Prisma {
   export type PromptResponseUncheckedUpdateWithoutPromptInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
+    text?: NullableStringFieldUpdateOperationsInput | string | null
     promptTokens?: IntFieldUpdateOperationsInput | number
     completionTokens?: IntFieldUpdateOperationsInput | number
     totalTokens?: IntFieldUpdateOperationsInput | number
@@ -6089,7 +6157,7 @@ export namespace Prisma {
   export type PromptResponseUncheckedUpdateManyWithoutPromptInput = {
     id?: StringFieldUpdateOperationsInput | string
     modelId?: StringFieldUpdateOperationsInput | string
-    text?: StringFieldUpdateOperationsInput | string
+    text?: NullableStringFieldUpdateOperationsInput | string | null
     promptTokens?: IntFieldUpdateOperationsInput | number
     completionTokens?: IntFieldUpdateOperationsInput | number
     totalTokens?: IntFieldUpdateOperationsInput | number

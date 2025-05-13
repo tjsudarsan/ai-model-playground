@@ -1,5 +1,5 @@
 import { BaseChatModel } from "@langchain/core/language_models/chat_models";
-import { ModelId, ModelOptions } from "./types";
+import { ModelId, ModelOptions } from "../../types/model.types";
 import { openaiModelProvider } from "./openai";
 import { anthropicModelProvider } from "./anthropic";
 import { xaiModelProvider } from "./xai";
@@ -7,7 +7,7 @@ import {
   createModelInstance,
   estimateTokens as estimateTokensUtil,
   calculateCost as calculateCostUtil,
-} from "./utils";
+} from "@/utils/model-utils";
 
 // Export all model providers
 export const modelProviders = {
@@ -17,8 +17,8 @@ export const modelProviders = {
 };
 
 // Re-export types
-export * from "./types";
-export { createModelInstance } from "./utils";
+export * from "../../types/model.types";
+export { createModelInstance } from "@/utils/model-utils";
 
 /**
  * Get a specific model instance with provided configuration
