@@ -120,6 +120,14 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  password: 'password',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.PromptScalarFieldEnum = {
   id: 'id',
   prompt: 'prompt',
@@ -128,7 +136,8 @@ exports.Prisma.PromptScalarFieldEnum = {
   maxTokens: 'maxTokens',
   topP: 'topP',
   frequencyPenalty: 'frequencyPenalty',
-  presencePenalty: 'presencePenalty'
+  presencePenalty: 'presencePenalty',
+  userId: 'userId'
 };
 
 exports.Prisma.PromptInputMessageScalarFieldEnum = {
@@ -169,6 +178,7 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
+  User: 'User',
   Prompt: 'Prompt',
   PromptInputMessage: 'PromptInputMessage',
   PromptResponse: 'PromptResponse'

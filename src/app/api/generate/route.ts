@@ -12,6 +12,7 @@ import {
   SystemMessage,
   AIMessage,
 } from "@langchain/core/messages";
+import { auth } from "@/auth";
 
 // Type for request body
 type RequestBody = {
@@ -31,6 +32,12 @@ type RequestBody = {
 
 export async function POST(request: NextRequest) {
   try {
+    const session = await auth();
+
+    if (!session || !session.user || !session.user.id) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     // Parse the request body
     const body: RequestBody = await request.json();
     const { messages, parameters } = body;
@@ -49,6 +56,7 @@ export async function POST(request: NextRequest) {
     // Create a new history record
     const historyRecord = await prisma.prompt.create({
       data: {
+        userId: session.user.id,
         prompt: promptText,
         // Store model parameters
         temperature: parameters?.temperature ?? undefined,

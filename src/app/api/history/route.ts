@@ -7,11 +7,22 @@ import {
   ModelParameters,
 } from "@/types/ui.types";
 import { Prompt, PromptInputMessage, PromptResponse } from "@/generated/prisma";
-
+import { auth } from "@/auth";
 export async function GET() {
   try {
+    const session = await auth();
+
+    console.log(session);
+
+    if (!session || !session.user || !session.user.id) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     // Get history items with their responses and messages
     const historyItems = await prisma.prompt.findMany({
+      where: {
+        userId: session.user.id,
+      },
       include: {
         responses: true,
         messages: {

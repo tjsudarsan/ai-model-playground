@@ -15,6 +15,15 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Prompt    Prompt[]
+}
+
 model Prompt {
   id        String               @id @default(cuid())
   prompt    String               @db.Text
@@ -28,6 +37,10 @@ model Prompt {
   topP             Float?
   frequencyPenalty Float?
   presencePenalty  Float?
+
+  // User
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model PromptInputMessage {
