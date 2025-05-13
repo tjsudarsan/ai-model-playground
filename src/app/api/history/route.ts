@@ -1,0 +1,97 @@
+import { NextRequest, NextResponse } from "next/server";
+import prisma from "@/lib/db";
+import { PlaygroundHistory, PlaygroundResponse } from "@/generated/prisma";
+
+export async function GET() {
+  try {
+    // Get history items with their responses
+    const historyItems = await prisma.playgroundHistory.findMany({
+      include: {
+        responses: true,
+      },
+      orderBy: {
+        timestamp: "desc",
+      },
+    });
+
+    // Format the data for the frontend
+    const formattedHistory = historyItems.map(
+      (item: PlaygroundHistory & { responses: PlaygroundResponse[] }) => ({
+        id: item.id,
+        prompt: item.prompt,
+        timestamp: item.timestamp,
+        responses: item.responses.map((response: PlaygroundResponse) => ({
+          modelId: response.modelId,
+          text: response.text,
+          metrics: {
+            promptTokens: response.promptTokens,
+            completionTokens: response.completionTokens,
+            totalTokens: response.totalTokens,
+            responseTime: response.responseTime,
+            estimatedCost: response.estimatedCost,
+          },
+        })),
+      })
+    );
+
+    return NextResponse.json(formattedHistory);
+  } catch (error) {
+    console.error("Error fetching history:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch history" },
+      { status: 500 }
+    );
+  }
+}
+
+// Delete a history item by ID
+export async function DELETE(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+
+    if (!id) {
+      return NextResponse.json(
+        { error: "Missing history ID" },
+        { status: 400 }
+      );
+    }
+
+    // Delete the history item (cascade will delete responses)
+    await prisma.playgroundHistory.delete({
+      where: {
+        id,
+      },
+    });
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Error deleting history:", error);
+    return NextResponse.json(
+      { error: "Failed to delete history item" },
+      { status: 500 }
+    );
+  }
+}
+
+// Clear all history
+export async function PATCH(request: NextRequest) {
+  try {
+    // Check if this is a clear all request
+    const { clearAll } = await request.json();
+
+    if (clearAll) {
+      // Delete all history items (cascade will delete responses)
+      await prisma.playgroundHistory.deleteMany({});
+      return NextResponse.json({ success: true });
+    }
+
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  } catch (error) {
+    console.error("Error clearing history:", error);
+    return NextResponse.json(
+      { error: "Failed to clear history" },
+      { status: 500 }
+    );
+  }
+}
