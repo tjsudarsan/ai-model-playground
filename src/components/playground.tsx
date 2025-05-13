@@ -1,66 +1,43 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
 import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer";
-import { Progress } from "./ui/progress";
-import { Clock, History, Send } from "lucide-react";
-import HistoryDrawer, { HistoryItem, Metrics } from "./history-drawer";
-
-// Model type definition
-type Model = {
-  id: string;
-  name: string;
-  provider: string;
-  color: string;
-};
-
-// Response type
-type ModelResponse = {
-  loading: boolean;
-  text: string;
-  metrics: Metrics | null;
-};
-
-// API response type
-type ApiResponse = {
-  historyId: string;
-  models: {
-    id: string;
-    name: string;
-    provider: string;
-    response: string | null;
-    error: string | null;
-    metrics: Metrics | null;
-  }[];
-};
-
-// Model definitions
-const models: Model[] = [
-  { id: "gpt4o", name: "GPT-4o", provider: "OpenAI", color: "blue" },
-  {
-    id: "claude",
-    name: "Claude 3.7 Sonnet",
-    provider: "Anthropic",
-    color: "amber",
-  },
-  { id: "xai", name: "XAI Grok", provider: "XAI", color: "violet" },
-];
+import { History, Send, Plus } from "lucide-react";
+import HistoryDrawer from "./history-drawer";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "./ui/resizable";
+import { MessageEditor } from "./message-editor";
+import { ParametersPopover } from "./parameters-popover";
+import { ModelResponsePanel } from "./model-response-panel";
+import { generateId } from "./utils";
+import {
+  models,
+  Message,
+  ModelResponse,
+  ModelParameters,
+  HistoryItem,
+  ApiResponse,
+} from "./types";
 
 export default function Playground() {
-  const [prompt, setPrompt] = useState("");
+  const [messages, setMessages] = useState<Message[]>([
+    { id: "1", role: "system", content: "You are a helpful assistant." },
+  ]);
   const [isLoading, setIsLoading] = useState(false);
   const [responses, setResponses] = useState<Record<string, ModelResponse>>({});
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [parameters, setParameters] = useState<ModelParameters>({
+    temperature: 0.7,
+    maxTokens: null,
+    topP: 1.0,
+    frequencyPenalty: 0.0,
+    presencePenalty: 0.0,
+  });
 
   // Fetch history on component mount
   useEffect(() => {
@@ -80,9 +57,41 @@ export default function Playground() {
     }
   };
 
-  // Send prompt to the API
+  // Add a new message
+  const addMessage = (role: "system" | "user" | "assistant" = "user") => {
+    const newMessage: Message = {
+      id: generateId(),
+      role,
+      content: "",
+    };
+    setMessages([...messages, newMessage]);
+  };
+
+  // Update a message
+  const updateMessage = (id: string, content: string) => {
+    setMessages(
+      messages.map((msg) => (msg.id === id ? { ...msg, content } : msg))
+    );
+  };
+
+  // Change message role
+  const changeMessageRole = (
+    id: string,
+    role: "system" | "user" | "assistant"
+  ) => {
+    setMessages(
+      messages.map((msg) => (msg.id === id ? { ...msg, role } : msg))
+    );
+  };
+
+  // Delete a message
+  const deleteMessage = (id: string) => {
+    setMessages(messages.filter((msg) => msg.id !== id));
+  };
+
+  // Send messages to the API
   const handleSendPrompt = async () => {
-    if (!prompt.trim()) return;
+    if (messages.length === 0) return;
 
     // Reset responses and set loading state
     setResponses({});
@@ -106,7 +115,10 @@ export default function Playground() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({
+          messages: messages,
+          parameters: parameters,
+        }),
       });
 
       if (!response.ok) {
@@ -153,7 +165,25 @@ export default function Playground() {
 
   // Load a history item into the playground
   const loadFromHistory = (historyItem: HistoryItem) => {
-    setPrompt(historyItem.prompt);
+    if (historyItem.messages && historyItem.messages.length > 0) {
+      // Convert DB messages to our Message format
+      const loadedMessages = historyItem.messages.map((msg) => ({
+        id: generateId(),
+        role: msg.role as "system" | "user" | "assistant",
+        content: msg.content,
+      }));
+      setMessages(loadedMessages);
+    } else {
+      // Fallback for older history items
+      setMessages([
+        { id: generateId(), role: "user", content: historyItem.prompt },
+      ]);
+    }
+
+    // Load parameters if available
+    if (historyItem.parameters) {
+      setParameters(historyItem.parameters);
+    }
 
     const historyResponses: Record<string, ModelResponse> = {};
     historyItem.responses.forEach((response) => {
@@ -190,107 +220,108 @@ export default function Playground() {
   };
 
   return (
-    <div className="container mx-auto p-4 max-w-7xl">
-      <div className="flex flex-col space-y-4">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold">AI Model Playground</h1>
-          <Drawer
-            open={isDrawerOpen}
-            onOpenChange={setIsDrawerOpen}
-            direction="right"
-          >
-            <DrawerTrigger asChild>
-              <Button variant="outline" className="flex items-center gap-2">
-                <History className="h-4 w-4" />
-                History
-              </Button>
-            </DrawerTrigger>
-            <DrawerContent>
-              <HistoryDrawer
-                history={history}
-                onSelectHistory={loadFromHistory}
-                onClearHistory={clearHistory}
-              />
-            </DrawerContent>
-          </Drawer>
-        </div>
-
-        <div className="flex flex-col space-y-2">
-          <textarea
-            placeholder="Enter your prompt here..."
-            className="min-h-28 text-base w-full p-2 border rounded-md resize-y"
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-            disabled={isLoading}
-          />
-          <div className="flex justify-end space-x-2">
-            <Button
-              onClick={handleSendPrompt}
-              disabled={!prompt.trim() || isLoading}
-              className="flex items-center gap-2"
-            >
-              <Send className="h-4 w-4" />
-              {isLoading ? "Generating..." : "Generate"}
-            </Button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {models.map((model) => (
-            <Card key={model.id} className="overflow-hidden">
-              <CardHeader className={`bg-${model.color}-50 border-b`}>
-                <CardTitle>{model.name}</CardTitle>
-                <CardDescription>{model.provider}</CardDescription>
-              </CardHeader>
-              <CardContent className="p-4 h-80 overflow-y-auto">
-                {responses[model.id]?.loading ? (
-                  <div className="flex flex-col items-center justify-center h-full space-y-2">
-                    <Progress value={45} className="w-full" />
-                    <p className="text-sm text-muted-foreground">
-                      Generating response...
-                    </p>
-                  </div>
-                ) : responses[model.id]?.text ? (
-                  <div className="whitespace-pre-wrap">
-                    {responses[model.id].text}
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center h-full text-muted-foreground">
-                    Response will appear here
-                  </div>
-                )}
-              </CardContent>
-              {responses[model.id]?.metrics && (
-                <CardFooter className="bg-muted/50 p-3 text-xs flex flex-col space-y-1">
-                  <div className="flex justify-between w-full">
-                    <span>Tokens:</span>
-                    <span>
-                      {responses[model.id].metrics?.promptTokens} +{" "}
-                      {responses[model.id].metrics?.completionTokens} ={" "}
-                      {responses[model.id].metrics?.totalTokens}
-                    </span>
-                  </div>
-                  <div className="flex justify-between w-full">
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      Response time:
-                    </span>
-                    <span>
-                      {responses[model.id].metrics?.responseTime.toFixed(2)}s
-                    </span>
-                  </div>
-                  <div className="flex justify-between w-full">
-                    <span>Est. cost:</span>
-                    <span>
-                      ${responses[model.id].metrics?.estimatedCost.toFixed(6)}
-                    </span>
-                  </div>
-                </CardFooter>
-              )}
-            </Card>
-          ))}
-        </div>
+    <div className="w-full p-4 h-[calc(100vh-2rem)]">
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-2xl font-bold">Prompt Playground</h1>
       </div>
+
+      <ResizablePanelGroup
+        direction="horizontal"
+        className="h-[calc(100vh-5rem)] rounded-lg border"
+      >
+        {/* Left panel - Messages and Parameters */}
+        <ResizablePanel defaultSize={40} minSize={30}>
+          <div className="flex h-full flex-col">
+            <div className="flex items-center justify-between border-b p-4">
+              <div className="text-lg font-medium">Prompt Messages</div>
+              <div className="flex gap-2">
+                <ParametersPopover
+                  parameters={parameters}
+                  onParametersChange={setParameters}
+                />
+
+                <Drawer
+                  open={isDrawerOpen}
+                  onOpenChange={setIsDrawerOpen}
+                  direction="right"
+                >
+                  <DrawerTrigger asChild>
+                    <Button variant="outline" size="sm" className="h-8 gap-1">
+                      <History className="h-4 w-4" />
+                      History
+                    </Button>
+                  </DrawerTrigger>
+                  <DrawerContent>
+                    <HistoryDrawer
+                      history={history}
+                      onSelectHistory={loadFromHistory}
+                      onClearHistory={clearHistory}
+                    />
+                  </DrawerContent>
+                </Drawer>
+              </div>
+            </div>
+
+            <div className="flex-1 overflow-auto p-4">
+              <div className="flex flex-col space-y-4">
+                {messages.map((message) => (
+                  <MessageEditor
+                    key={message.id}
+                    message={message}
+                    onUpdateMessage={updateMessage}
+                    onChangeRole={changeMessageRole}
+                    onDeleteMessage={deleteMessage}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="border-t p-4">
+              <div className="flex flex-col gap-2">
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => addMessage()}
+                    className="h-8"
+                  >
+                    <Plus className="h-3 w-3 mr-1" /> Add Message
+                  </Button>
+                </div>
+                <Button
+                  className="w-full"
+                  onClick={handleSendPrompt}
+                  disabled={
+                    isLoading || messages.every((m) => !m.content.trim())
+                  }
+                >
+                  <Send className="h-4 w-4 mr-2" />
+                  {isLoading ? "Generating..." : "Generate"}
+                </Button>
+              </div>
+            </div>
+          </div>
+        </ResizablePanel>
+
+        <ResizableHandle withHandle />
+
+        {/* Right panel - Model Responses */}
+        <ResizablePanel defaultSize={60}>
+          <ResizablePanelGroup direction="vertical">
+            {models.map((model, index) => (
+              <React.Fragment key={model.id}>
+                {index > 0 && <ResizableHandle withHandle />}
+                <ResizablePanel defaultSize={100 / models.length}>
+                  <ModelResponsePanel
+                    model={model}
+                    response={responses[model.id]}
+                  />
+                </ResizablePanel>
+              </React.Fragment>
+            ))}
+          </ResizablePanelGroup>
+        </ResizablePanel>
+      </ResizablePanelGroup>
     </div>
   );
 }

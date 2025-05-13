@@ -1,13 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/db";
-import { PlaygroundHistory, PlaygroundResponse } from "@/generated/prisma";
+import { Prompt, PromptResponse } from "@/generated/prisma";
+
+// Properly type our result including messages
+type PromptWithRelations = Prompt & {
+  responses: PromptResponse[];
+  messages: {
+    id: string;
+    role: string;
+    content: string;
+    order: number;
+    promptId: string;
+  }[];
+};
 
 export async function GET() {
   try {
-    // Get history items with their responses
-    const historyItems = await prisma.playgroundHistory.findMany({
+    // Get history items with their responses and messages
+    const historyItems = await prisma.prompt.findMany({
       include: {
         responses: true,
+        messages: {
+          orderBy: {
+            order: "asc",
+          },
+        },
       },
       orderBy: {
         timestamp: "desc",
@@ -15,24 +32,42 @@ export async function GET() {
     });
 
     // Format the data for the frontend
-    const formattedHistory = historyItems.map(
-      (item: PlaygroundHistory & { responses: PlaygroundResponse[] }) => ({
-        id: item.id,
-        prompt: item.prompt,
-        timestamp: item.timestamp,
-        responses: item.responses.map((response: PlaygroundResponse) => ({
-          modelId: response.modelId,
-          text: response.text,
-          metrics: {
-            promptTokens: response.promptTokens,
-            completionTokens: response.completionTokens,
-            totalTokens: response.totalTokens,
-            responseTime: response.responseTime,
-            estimatedCost: response.estimatedCost,
-          },
-        })),
-      })
-    );
+    const formattedHistory = historyItems.map((item: any) => ({
+      id: item.id,
+      prompt: item.prompt,
+      timestamp: item.timestamp,
+      // Pass messages
+      messages: item.messages.map((message: any) => ({
+        role: message.role,
+        content: message.content,
+        order: message.order,
+      })),
+      // Pass parameters if they exist
+      parameters:
+        item.temperature !== null ||
+        item.maxTokens !== null ||
+        item.topP !== null
+          ? {
+              temperature: item.temperature ?? 0.7,
+              maxTokens: item.maxTokens,
+              topP: item.topP ?? 1.0,
+              frequencyPenalty: item.frequencyPenalty ?? 0.0,
+              presencePenalty: item.presencePenalty ?? 0.0,
+            }
+          : undefined,
+      // Pass responses
+      responses: item.responses.map((response: any) => ({
+        modelId: response.modelId,
+        text: response.text,
+        metrics: {
+          promptTokens: response.promptTokens,
+          completionTokens: response.completionTokens,
+          totalTokens: response.totalTokens,
+          responseTime: response.responseTime,
+          estimatedCost: response.estimatedCost,
+        },
+      })),
+    }));
 
     return NextResponse.json(formattedHistory);
   } catch (error) {
@@ -57,8 +92,8 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    // Delete the history item (cascade will delete responses)
-    await prisma.playgroundHistory.delete({
+    // Delete the history item (cascade will delete responses and messages)
+    await prisma.prompt.delete({
       where: {
         id,
       },
@@ -81,8 +116,8 @@ export async function PATCH(request: NextRequest) {
     const { clearAll } = await request.json();
 
     if (clearAll) {
-      // Delete all history items (cascade will delete responses)
-      await prisma.playgroundHistory.deleteMany({});
+      // Delete all history items (cascade will delete responses and messages)
+      await prisma.prompt.deleteMany({});
       return NextResponse.json({ success: true });
     }
 

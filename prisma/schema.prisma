@@ -16,10 +16,29 @@ datasource db {
 }
 
 model Prompt {
-  id        String           @id @default(cuid())
-  prompt    String
-  timestamp DateTime         @default(now())
+  id        String               @id @default(cuid())
+  prompt    String               @db.Text
+  messages  PromptInputMessage[]
+  timestamp DateTime             @default(now())
   responses PromptResponse[]
+
+  // Model parameters
+  temperature      Float?
+  maxTokens        Int?
+  topP             Float?
+  frequencyPenalty Float?
+  presencePenalty  Float?
+}
+
+model PromptInputMessage {
+  id       String @id @default(cuid())
+  role     String // "system", "user", "assistant"
+  content  String @db.Text
+  prompt   Prompt @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  promptId String
+  order    Int // To maintain the sequence of messages
+
+  @@index([promptId, order])
 }
 
 model PromptResponse {

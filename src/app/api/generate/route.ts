@@ -7,26 +7,73 @@ import {
   ModelId,
 } from "@/lib/models";
 import prisma from "@/lib/db";
-import { HumanMessage } from "@langchain/core/messages";
+import {
+  HumanMessage,
+  SystemMessage,
+  AIMessage,
+} from "@langchain/core/messages";
+
+// Type for request body
+type RequestBody = {
+  messages: {
+    id: string;
+    role: "system" | "user" | "assistant";
+    content: string;
+  }[];
+  parameters?: {
+    temperature: number;
+    maxTokens: number | null;
+    topP: number;
+    frequencyPenalty: number;
+    presencePenalty: number;
+  };
+};
 
 export async function POST(request: NextRequest) {
   try {
     // Parse the request body
-    const { prompt } = await request.json();
+    const body: RequestBody = await request.json();
+    const { messages, parameters } = body;
 
-    if (!prompt || typeof prompt !== "string") {
+    if (!messages || !Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json(
-        { error: "Invalid request: prompt must be a non-empty string" },
+        { error: "Invalid request: messages must be a non-empty array" },
         { status: 400 }
       );
     }
 
+    // Extract prompt text for backward compatibility and storage
+    // We'll use the content of the first user message, or the first message if no user messages exist
+    const userMessage = messages.find((msg) => msg.role === "user");
+    const promptText = userMessage ? userMessage.content : messages[0].content;
+
     // Create a new history record
-    const historyRecord = await prisma.playgroundHistory.create({
+    const historyRecord = await prisma.prompt.create({
       data: {
-        prompt,
+        prompt: promptText,
+        // Store model parameters
+        temperature: parameters?.temperature ?? undefined,
+        maxTokens:
+          parameters?.maxTokens !== null ? parameters?.maxTokens : undefined,
+        topP: parameters?.topP ?? undefined,
+        frequencyPenalty: parameters?.frequencyPenalty ?? undefined,
+        presencePenalty: parameters?.presencePenalty ?? undefined,
       },
     });
+
+    // Create messages separately after creating the prompt
+    await Promise.all(
+      messages.map((msg, index) =>
+        prisma.promptInputMessage.create({
+          data: {
+            promptId: historyRecord.id,
+            role: msg.role,
+            content: msg.content,
+            order: index,
+          },
+        })
+      )
+    );
 
     // Get model IDs from modelProviders
     const modelIds = Object.keys(modelProviders) as ModelId[];
@@ -35,21 +82,48 @@ export async function POST(request: NextRequest) {
     const results = await Promise.all(
       modelIds.map(async (modelId) => {
         try {
-          // Initialize the model
-          const model = getModel(modelId, { streaming: false });
+          // Initialize the model with parameters
+          const model = getModel(modelId, {
+            streaming: false,
+            temperature: parameters?.temperature,
+            maxTokens:
+              parameters && parameters.maxTokens !== null
+                ? parameters.maxTokens
+                : undefined,
+            topP: parameters?.topP,
+            frequencyPenalty: parameters?.frequencyPenalty,
+            presencePenalty: parameters?.presencePenalty,
+          });
 
-          // Create a human message
-          const message = new HumanMessage(prompt);
+          // Convert messages to LangChain format
+          const langchainMessages = messages.map((msg) => {
+            switch (msg.role) {
+              case "system":
+                return new SystemMessage(msg.content);
+              case "user":
+                return new HumanMessage(msg.content);
+              case "assistant":
+                return new AIMessage(msg.content);
+              default:
+                return new HumanMessage(msg.content);
+            }
+          });
 
           // Record start time
           const startTime = Date.now();
 
-          // Invoke the model (without streaming)
-          const response = await model.invoke([message]);
+          // Invoke the model
+          const response = await model.invoke(langchainMessages);
 
           // Calculate metrics
           const responseTime = (Date.now() - startTime) / 1000;
-          const promptTokens = estimateTokens(prompt, modelId);
+
+          // Calculate total prompt tokens by summing all message tokens
+          let promptTokens = 0;
+          for (const msg of messages) {
+            promptTokens += estimateTokens(msg.content, modelId);
+          }
+
           const completionTokens = estimateTokens(
             response.content as string,
             modelId
@@ -62,9 +136,9 @@ export async function POST(request: NextRequest) {
           );
 
           // Store the response in the database
-          await prisma.playgroundResponse.create({
+          await prisma.promptResponse.create({
             data: {
-              historyId: historyRecord.id,
+              promptId: historyRecord.id,
               modelId,
               text: response.content as string,
               promptTokens,
